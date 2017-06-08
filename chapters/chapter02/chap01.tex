@@ -1,0 +1,888 @@
+%
+% File: chap01.tex
+% Author: Victor F. Brena-Medina
+% Description: Introduction chapter where the biology goes.
+%
+\let\textcircled=\pgftextcircled
+\chapter{Requirements Analysis and Specification}
+\label{chap:intro}
+
+\initial{A}fter defining the project scope and making a preliminary study. In this chapter, we will deep dive in two
+ parts, one is the functional branchy part which presents the application logic and the other one is the technical
+  branch which present the infrastructure support.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.4\textheight]{fig01/Capture}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+%=======
+\section{Functional branch}
+\label{sec:sec01}
+The functional (left) branch corresponds to the traditional task of domain and
+user requirements modeling, independently from technical aspects. Considering
+the design of a Mixed Reality system. It includes interaction scenarios, task analysis, 
+interaction modality choices and mock-ups. This branch ends by structuring the domains with
+Interactional and Business objects required to implement the Mixed Reality
+system.
+\subsection{Requirements analysis}
+\label{sec:sec01}
+\subsubsection{Functional requirements}
+\label{sec:sec01}
+Our application should be able to provide the following requirements
+
+\begin{center}
+ \begin{tabular}{||c | c| c| c| c||} 
+ \hline
+ ID & Nom & Description \\ [0.5ex] 
+ \hline\hline
+ 1 & Track users behavior  &
+    \begin{tabular}{@{}c@{}c@{}}As administrator i would like to be  \\ able to track users depending on thier \\ 
+	geolocations and interests 
+    \end{tabular}
+    \\ 
+ \hline
+  1 & Account managment &
+    \begin{tabular}{@{}c@{}c@{}}As administrator i would like to be  \\ able to track users depending on thier \\ 
+	geolocations and interests 
+    \end{tabular}
+    \\ 
+ \hline
+  1 & Promotion managment  &
+    \begin{tabular}{@{}c@{}c@{}}As administrator i would like to be  \\ able to track users depending on thier \\ 
+	geolocations and interests 
+    \end{tabular}
+    \\ 
+ \hline
+ 2 & Recommend promotions and services  &
+    \begin{tabular}{@{}c@{}c@{}}As administrator i would like to be  \\ able to automatically recommend \\ services,
+	promotions \\ depending on users locations and interests. 
+    \end{tabular}
+    \\ 
+ \hline
+ 3 & Analyse users data flow  &
+    \begin{tabular}{@{}c@{}c@{}}As administrator i would like to be  \\ able to 
+	analyse and extract informations\\ from users data flow
+    \end{tabular}
+    \\ 
+ \hline
+ 4 & Promote a service  &
+    \begin{tabular}{@{}c@{}c@{}}As third party i would like to be  \\ able to 
+	promote my services and\\ target a users segment
+    \end{tabular}
+    \\ 
+ \hline
+ 5 & Benifit from services and promotions  &
+    \begin{tabular}{@{}c@{}c@{}}As a client application user i would like to be  \\ able to 
+	see near promotions and \\services depending on my interests
+    \end{tabular}
+    \\ 
+ \hline
+
+\end{tabular}
+\end{center}
+
+
+\subsubsection{Non functional requirements}
+\label{sec:sec01}
+\paragraph{Scalability}
+\label{sec:sec01}
+Scalability is the capability of a system, network, or process to handle a growing amount of work, or its potential 
+to be enlarged to accommodate that growth. For example, a system is considered scalable if it is capable of 
+increasing its total output under an increased load when resources (typically hardware) are added. 
+An analogous meaning is implied when the word is used in an economic context, where a company's scalability 
+implies that the underlying business model offers the potential for economic growth within the company.
+\paragraph{Operability}
+\label{sec:sec01}
+Operability is the ability to keep an equipment, a system or a whole industrial 
+binstallation in a safe and reliable functioning condition, according to pre-defined operational requirements.
+\paragraph{Security}
+\label{sec:sec01}
+Security is the degree of resistance to, or protection from, harm. It applies to any vulnerable and/or valuable asset,
+ such as a person, dwelling, community, item, nation, or organization.
+\paragraph{Fault tolerance}
+\label{sec:sec01}
+Fault tolerance is the property that enables a system to continue operating properly in the event of the failure 
+of (or one or more faults within) some of its components. If its operating quality decreases at all, the decrease
+ is proportional to the severity of the failure, as compared to a naively designed system in which even a small 
+ failure can cause total breakdown. Fault tolerance is particularly sought after in high-availability or life-critical
+  systems. The ability of maintaining functionality when portions of a system break down is referred to as graceful 
+  degradation.
+
+ \paragraph{Extensibility}
+\label{sec:sec01}
+Extensibility is a software engineering and systems design principle where the implementation takes 
+future growth into consideration. The term extensibility can also be seen as a systemic measure of the 
+ability to extend a system and the level of effort required to implement the extension. Extensions can be through 
+the addition of new functionality or through modification of existing functionality.
+
+\subsection{Requirements specification}
+\label{sec:sec01}
+In order to properly establish the planned objectives during our development process, we will specify in more detail
+the previous requirements using the UML design methodology.
+\subsubsection{Actors identification}
+\label{sec:sec01}
+Starting from the last requirements collection , we identify three main actors that 
+interact continuously with our application.
+\begin{itemize}
+  \item Administrator - the administrator is able to see users data analytics , track them spatially and manage users
+   , promotions and services .
+  \item Third party - the third party is able to submit a promotion via an application portail.
+  \item User - the user is able to see promotions and services depending on his interests.
+\end{itemize}
+
+\subsubsection{Use case modelization}
+\label{sec:sec01}
+This phase aims to describe the expected behavior of the application. 
+For this purpose, we use the use case diagram as an essential element of object-oriented modeling. 
+It makes it possible to model the functionalities of the application . 
+\paragraph{Data analytics use case diagram} :
+\label{sec:sec01}
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=0.4\textheight]{fig01/DataAnalyticsUseCasediagram}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
+\subparagraph{Use case identification} :
+\label{sec:sec01} 
+
+Title : Data analytics
+
+Summary : Our application administrator is able to truck users spatially and analyse their data flow , relaying on
+the big data engine , to recommand the most apporiate promotion depending on thier intersts and locations.
+
+Actors : administrator
+
+\subparagraph{Senarios description} :
+\label{sec:sec01}
+
+Precondition : This functionality user require the administrator privilege.
+
+Post-condition : Users could receive administrator logic promotions recommendation.
+
+\subparagraph{Nominal Scenario} :
+\label{sec:sec01}
+
+ \begin{enumerate}
+   \item Administrator login to dashboard
+   \item Administrator choose between Dashboard and World Map
+   \item If Administrator choose dashboard 
+   \begin{enumerate}
+     \item administrator is able to see data flow analytics in deferent type of charts
+   \end{enumerate}
+   \item If Administrator choose world map 
+   \begin{enumerate}
+     \item administrator is able to see users Heatmap
+   \end{enumerate}
+ \end{enumerate}
+
+\subparagraph{Alternative Scenario} :
+\label{sec:sec01}
+
+There is no alternative senario.
+\subparagraph{Error Scenario} :
+\label{sec:sec01}
+
+If the dashboard could not get informations form the microservice then the dashboard show intiale informations.
+\paragraph{Use case diagram of account managment} :
+\label{sec:sec01}
+
+ \begin{figure}[H]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/userMangment}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
+\subparagraph{Use case identification} :
+\label{sec:sec01} 
+
+Title : Account managment
+
+Summary : Our application administrator is able to add, remove, update , search and consult users. Our system provide
+an update position functionality that allwo real time user position track. Mobile client application send periodically 
+the device position to the account microservice.
+
+Actors : administrator
+
+\subparagraph{Senarios description} :
+\label{sec:sec01}
+
+Precondition : This functionality user require the administrator privilege.
+
+Post-condition : Administrator could mange users account and track their positions.
+
+\subparagraph{Nominal Scenario} :
+\label{sec:sec01}
+
+ \begin{enumerate}
+   \item Administrator login to dashboard
+   \item Administrator choose account managment
+   \item Administrator could search, add, update, delete and consult an account.  
+ \end{enumerate}
+
+\subparagraph{Alternative Scenario} :
+\label{sec:sec01}
+there is no alternative senario.
+\subparagraph{Error Scenario} :
+\label{sec:sec01}
+If the administrator was not able to do the opration then he will be notified.
+
+ \paragraph{Promotions managment} :
+\label{sec:sec01}   
+
+ \begin{figure}[H]
+	\centering
+	\includegraphics[height=0.4\textheight]{fig01/PromotionUseCaseDiagram}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
+\subparagraph{Use case identification} :
+\label{sec:sec01} 
+
+Title : Promotion managment
+
+Summary : Our application administrator is able to search, add, delete, update and consult promotions,
+Third party representative is able to make to promote a serive and select wich kind of people his intersted about and
+user can see promotion and take advantage of promotions services.
+
+Actors : administrator , Third party and user
+
+\subparagraph{Senarios description} :
+\label{sec:sec01}
+
+Precondition : This functionality user require a varity of privilege.
+
+Post-condition : Promotions are well exposed to app users.
+
+\subparagraph{Nominal Scenario} :
+\label{sec:sec01}
+
+ \begin{enumerate}
+   \item Administrator login to dashboard
+   \item Administrator choose Promotion managment
+   \item administrator is able to search, add, update, delete, consult promotion
+ \end{enumerate}
+
+ \begin{enumerate}
+   \item Third party representative login to dashboard
+   \item Choose Promotion managment
+   \item He is able to search, add, update, delete and consult his promotions
+ \end{enumerate}
+
+ \begin{enumerate}
+   \item User login to the mobile application
+   \item User is able to see promotions
+ \end{enumerate}
+
+
+\subparagraph{Alternative Scenario} :
+\label{sec:sec01}
+There is no alternative senario.
+\subparagraph{Error Scenario} :
+\label{sec:sec01}
+If the any application user (administrator, third party representative, mobile application user) was not able to do the opration then he will be notified.
+
+\newpage
+\subsubsection{Sequence diagrams}
+\label{sec:sec01}
+With sequence diagrams, the UML provides a graphical way to represent interactions between objects over time. These diagrams typically show an actor, the objects and the actors with whom he interacts during the execution of the use case. In this section, we present some sequence diagrams to describe the different interactions between the user and the application
+
+\paragraph{Sequence Diagram for the Authentication Scenario} :
+\label{sec:sec01}
+
+ \begin{figure}[H]
+	\centering
+	\includegraphics[height=0.7\textheight]{fig01/SequenceDiagramAuthentification}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
+\paragraph{Sequence Diagram for account managment} :
+\label{sec:sec01}
+
+ \begin{figure}[H]
+	\centering
+	\includegraphics[height=0.7\textheight]{fig01/AddAccount}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
+\paragraph{Conclusion}
+\label{sec:sec01}
+this phase allows us to initiate to the following chapter which deals with our application design. In the next section
+we will deep dive in technical specification.
+\newpage
+\section{Technical branch}
+\label{subsec:subsec01}
+Since the functional requirements have been defined, it's time to choose which tools shall we use and
+ especially on which software architecture we will be reposing. 
+
+\subsection{Big Data architecture}
+\label{sec:sec01}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.4\textheight]{fig01/lambda}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
+In the last chapter, we choosed to go with the lambda approach. the question now is how to choose the right tools. So in
+the next sections we will be making a comparative study in each field (yellow tags on the previous figure) to pick the most appropriate tools.
+
+\subsubsection{OSS Message brokers layer}
+\label{sec:sec01}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.2\textheight]{fig01/MessageBrokerNecessity}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+The incoming data could be from different sources . Data should be gathered in one data flow pipeline.
+Otherwise we will find ourselves dealing with a complexe grid , providing all apis compatibility and resolving 
+extras problems.
+
+
+A great solution for this problem could be a messaging layer that gives a various guarantees 
+of message persistence and delivery.In this section , we will introduce some of the best message brokers that can 
+handle this activity.So our Competitors are SQS AWS, Apache Kafka, Mongodb message queue, HornetQ, RabbitMQ, 
+Apache ActiveMQ
+
+\paragraph{SQS AWS}
+\label{sec:sec01}
+SQS, Simple Message Queue, is a message-queue-as-a-service offering from Amazon Web Services.
+ It supports only a handful of messaging operations but 
+ thanks to the easy to understand interfaces, and the as-a-service nature.
+SQS guarantees that if a send completes, the message is replicated to multiple nodes.
+ It also provides at-least-once delivery guarantees. We don't really know how SQS is implemented,
+A single thread on single node achieves 430 msgs/s
+ sent and the same number of msgs received.
+These results are not impressive, 
+but SQS scales nicely both when increasing the number of threads, and the number of nodes
+. On a single node, with 50 threads, we can send up to 14 500 msgs/s, and receive up to 4 200 msgs/s.
+On an 8-node cluster, these numbers go up to 63 500 msgs/s sent, and 34 800 msgs/s received.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.2\textheight]{fig01/SQS}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+\paragraph{Apache Kafka}
+\label{sec:sec01}
+Apache Kafka is an open-source stream processing platform developed by the Apache Software Foundation 
+written in Scala and Java. The project aims to provide a unified, high-throughput, low-latency platform for handling 
+real-time data feeds. Its storage layer is essentially a massively scalable pub/sub message queue 
+architected making it highly valuable for enterprise infrastructures to process streaming data.
+Kafka's performance is great. A single-node single-thread achieves about 2 550 msgs/s, and the best result
+ was 33 500msgs/s with 25 sending and receiving threads and 4 nodes.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/kafkaPerformance}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
+\paragraph{Mongodb message queue}
+\label{sec:sec01}
+Mongo has two main features which make it possible to easily implement a durable, replicated message queue on top of it.
+A single-thread, single-node setup achieves 7 900 msgs/s sent and 1 900 msgs/s received. 
+The maximum send throughput with multiple thread/nodes is about 10 500 msgs/s,
+ while the maximum receive rate is 3 200 msgs/s, when using the “safe” write concern.
+ \begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.2\textheight]{fig01/MongodbMessageQ}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
+
+\paragraph{HornetQ}
+\label{sec:sec01}
+HornetQ is an open source asynchronous messaging project from JBoss. 
+It is an example of Message-oriented middleware.
+ HornetQ is an open source project to build a multi-protocol, embeddable, very high performance, clustered,
+  asynchronous messaging system.
+Speaking of performance, HornetQ is very good! A single-node, 
+single-thread setup achieves 1 100 msgs/s. 
+With 25 threads, we are up to 12 800 msgs/s! And finally, with 25 threads and 4 nodes, we can achieve 17 000 msgs/s.
+ \begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/HornetQ}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+\paragraph{RabbitMQ}
+\label{sec:sec01}
+RabbitMQ is one of the leading open-source messaging systems. 
+It is written in Erlang, implements AMQP and is a very popular choice when messaging is involved. 
+It supports both message persistence and replication, with well documented behaviour in case of e.g. partitions.
+Such strong guarantees are probably one of the reasons for poor performance. 
+A single-thread, single-node gives us 310 msgs/s sent and received. 
+This scales nicely as we add nodes, up to 1 600 msgs/s
+ \begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/RabbitMQ}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
+
+\paragraph{Apache ActiveMQ}
+\label{sec:sec01}
+Apache ActiveMQ is an open source message broker written in Java together with a full Java Message Service (JMS) client.
+It provides Enterprise Features which in this case means fostering the communication from more than one client or server.
+ Supported clients include Java via JMS 1.1 as well as several other "cross language" clients. 
+ The communication is managed with features such as computer clustering and ability to use any database as a 
+ JMS persistence provider besides virtual memory, cache, and journal persistency.
+The next benchmark show the perfomance of ActiveMQ  :
+ \begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/ActiveMQ}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
+\paragraph{Summary}
+Now the question is which message queue we should choose . All of the above solutions have some good sides:
+
+\begin{itemize}
+  \item SQS is a service, so especially if you are using the AWS cloud, it's an easy choice: good performance and no 
+setup required
+  \item if you are using Mongo, it is easy to build a replicated message queue on top of it, without the need to 
+create and maintain a separate messaging cluster
+  \item if you want to have high persistence guarantees, RabbitMQ ensures replication across the cluster and on disk
+ on message send.
+  \item HornetQ has great performance with a very rich messaging interface and routing options
+  \item Kafka offers the best performance and scalability
+  \item ActiveMQ employs several modes for high availability,A robust horizontal scaling mechanism and 
+  a flexibility in configuration
+\end{itemize}
+
+When looking only at the throughput, Kafka is a clear winner
+ (unless we include SQS with multiple nodes, but as mentioned, that would be unfair)
+  \begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/kafkaBenshMark}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}\\
+It's also interesting to see how sending more messages in a batch improves the throughput, when increasing the batch size from 10 to 100, Rabbit gets a 2x speedup, HornetQ a 1.2x speedup, and Kafka a 2.5x speedup, achieving about 89 000 msgs/s!
+  \begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/MQPerformance}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}\\
+There are of course many other aspects besides performance, 
+which should be taken into account when choosing a message queue, 
+such as administration overhead, partition tolerance, feature set regarding routing, etc.
+And as we are interested in first with performance , we will choose Kafka for our mission .
+\subsubsection{NoSQL Databases}
+\label{sec:sec01}
+After performing the Data analytics logic , results are persisted in a serving layer. This layer is mostly a databes and more 
+precisely a noSql database. In this section , we will introduce some of the best noSql databases that can 
+handle this activity.So our Competitors are:
+\begin{itemize}
+  \item \textbf{Document oriented :} Mongodb , CouchDB
+  \item \textbf{Key Value oriented :} Redis
+  \item \textbf{Graph oriented :} Noe4j 
+  \item \textbf{Column oriented :} Cassandra , Riak , HBase
+\end{itemize}
+
+\paragraph{Document oriented} 
+\label{sec:sec01} :\\
+A document-oriented database, or document store, is a computer program designed for storing, 
+retrieving and managing document-oriented information, also known as semi-structured data.
+ Document-oriented databases are one of the main categories of NoSQL databases, 
+ and the popularity of the term document-oriented database has grown with the use of the term NoSQL itself.
+\subparagraph{Mongodb} 
+\label{sec:sec01}
+Mongodb is one of the most popular document based NoSQL database as it stores data in JSON like documents.
+ It is non-relational database with dynamic schema. 
+ It has been developed by the founders of DoubleClick, written in C++ and is currently being used by 
+ some big companies like The New York Times, Craigslist, MTV Networks. 
+ The following are some of MongoDB benefits and strengths :
+
+ \begin{itemize}
+  \item Speed: For simple queries, it gives good performance, as all the related data are in single document which eliminates the join operations.
+  \item Scalability: It is horizontally scalable i.e. you can reduce the workload by increasing the number of servers in your resource pool instead of relying on a stand alone resource.
+  \item Manageable: It is easy to use for both developers and administrators. This also gives the ability to shard database
+  \item Dynamic Schema: Its gives you the flexibility to evolve your data schema without modifying the existing data
+\end{itemize}
+
+\subparagraph{CouchDB} 
+\label{sec:sec01}
+CouchDB is also a document based NoSQL database.
+It stores data in form of JSON documents. The following are some of CouchDB benefits and strengths:
+ \begin{itemize}
+  \item Schema-less: As a member of NoSQL family, it also have dynamic schema which makes it more flexible, having a form of JSON documents for storing data.
+  \item HTTP query: You can access your database documents using your web browser.
+  \item Conflict Resolution: It has automatic conflict detection which is useful while in a distributed database.
+  \item Easy Replication: Implementing replication is fairly straight forward
+\end{itemize}
+
+
+
+\paragraph{Key Value oriented } :\\
+\label{sec:sec01}
+A key-value store, or key-value database, is a data storage paradigm designed for storing, 
+retrieving, and managing associative arrays, a data structure more commonly 
+known today as a dictionary or hash. Dictionaries contain a collection of objects, 
+or records, which in turn have many different fields within them, each containing data. 
+These records are stored and retrieved using a key that uniquely identifies the record, 
+and is used to quickly find the data within the database.
+\subparagraph{Redis} 
+\label{sec:sec01}
+Redis is an Open Source NoSQL database which is mainly used because of its lightening speed. It is written in ANSI C language. The following are some of Redis benefits and strengths:
+ \begin{itemize}
+  \item Data structures: Redis provides efficient data structures to an extend that it is sometimes called as data structure server. The keys stored in database can be hashes, lists, strings, sorted or unsorted sets.
+  \item Redis as Cache: You can use Redis as a cache by implementing keys with limited time to live to improve the performance.
+  \item Very fast: It is consider as one of the fastest NoSQL server as it works with the in-memory dataset.
+\end{itemize}
+
+
+
+\paragraph{Graph oriented} :\\
+\label{sec:sec01}
+The graph based DBMS models represent the data in a completely different way than the previous three models.
+ They use tree-like structureswith nodes and edges connecting each other through relations.
+\subparagraph{Noe4j} 
+\label{sec:sec01}
+Neo4j is a graph database management system developed by Neo Technology,Described by its 
+developers as an ACID-compliant transactional database with native graph storage and processing,
+Neo4j is the most popular graph database.
+Neo4j is implemented in Java and accessible 
+from software written in other languages using the Cypher 
+Query Language through a transactional HTTP endpoint, or through the binary bolt protocol.
+
+
+\paragraph{Column oriented } :\\
+\label{sec:sec01}
+A column-oriented DBMS (or columnar database management system) is a database management system (DBMS) 
+that stores data tables by column rather than by row. 
+Practical use of a column store versus a row store differs little in the relational DBMS world. 
+Both columnar and row databases can use traditional database query languages like SQL to load 
+data and perform queries.
+\subparagraph{Cassandra} 
+\label{sec:sec01}
+Apache Cassandra is the leading NoSQL, distributed database management system driving many of today's 
+modern business applications by offering continuous availability, high scalability and performance, 
+strong security, and operational simplicity while lowering overall cost of ownership.
+Cassandra has decentralized architecture. Any node can perform any operation. It provides 
+AP(Availability,Partition-Tolerance). Cassandra has excellent single-row read performance as long as 
+eventual consistency semantics are sufficient for the use-case. 
+\subparagraph{Riak} 
+\label{sec:sec01}
+Riak is a distributed NoSQL key-value data store that offers high availability, fault tolerance, operational simplicity,
+ and scalability.In addition to the open-source version, it comes in a supported enterprise version and a cloud 
+ storage version. Riak implements the principles from Amazon's Dynamo paper with heavy influence from the CAP 
+ Theorem. Written in Erlang, Riak has fault tolerance data replication and automatic data distribution across
+  the cluster for performance and resilience.
+\subparagraph{HBase} 
+\label{sec:sec01}
+HBase is an open source, non-relational, distributed database modeled after Google's Bigtable 
+and is written in Java. It is developed as part of Apache Software Foundation's Apache Hadoop project
+ and runs on top of HDFS (Hadoop Distributed File System), providing Bigtable-like capabilities for Hadoop. 
+ That is, it provides a fault-tolerant way of storing large quantities of sparse data
+  HBase is a column-oriented key-value data store and has been idolized widely because of its 
+  lineage with Hadoop and HDFS. HBase runs on top of HDFS and is well-suited for faster read and
+   write operations on large datasets with high throughput and low input/output latency.
+\newpage
+\paragraph{Summary} :\\ 
+\label{sec:sec01}
+It's too hard to pick the right database for our serving layer . In this paragraph we try to choose the most appropriate
+one depending on some benshMarks well known.
+ \begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/NoSqlBenshMark}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+This benchmarks elect Cassandra as the best database in performance point of view. But infact , there is no best database
+, choosing the best one depend on the use case . It's the Polyglot persistence which we'll explain in the next section.
+
+\subparagraph{Polyglot persistence } :\\
+\label{sec:sec01}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/PolyglotPersistance}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
+
+Polyglot Persistence is a fancy term to mean that when storing data, it is best to use multiple data storage 
+technologies, chosen based upon the way data is being used by individual applications or components of a single 
+application.  Different kinds of data are best dealt with different data stores.  In short, it means picking the right tool for the right use case.  It's the same idea behind Polyglot Programming, which is the idea that applications should be written in a mix of languages to take advantage of the fact that different languages are suitable for tackling different problems.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/Polyglot}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
+And as we want to make data analytics. We choose as a noSql database for our system , the oriented column one "Cassandra". 
+
+\subsubsection{Big Data Processing Frameworks}
+\label{sec:sec01}
+\paragraph{Only-Batch processing frameworks }
+\label{sec:sec01}
+\subparagraph{Apache Hadoop (MapReduce) }
+\label{sec:sec01}
+Modern versions of Hadoop are composed of several components or layers, that work together to process batch data:
+
+\begin{itemize}
+  \item HDFS: HDFS is the distributed filesystem layer that coordinates storage and replication across the cluster nodes. HDFS ensures that data remains available in spite of inevitable host failures. It is used as the source of data, to store intermediate processing results, and to persist the final calculated results.
+  \item YARN: YARN, which stands for Yet Another Resource Negotiator, is the cluster coordinating component of the Hadoop stack. It is responsible for coordinating and managing the underlying resources and scheduling jobs to be run. YARN makes it possible to run much more diverse workloads on a Hadoop cluster than was possible in earlier iterations by acting as an interface to the cluster resources.
+  \item MapReduce: MapReduce is Hadoop's native batch processing engine.
+  \item Hadoop commons : librerie that supports others component.
+\end{itemize}
+MapReduce's processing technique follows the map, shuffle, reduce algorithm using key-value pairs.\\
+Apache Hadoop and its MapReduce processing engine offer a well-tested batch processing model that is best suited for handling very large data sets where time is not a significant factor. 
+
+\paragraph{Only-Streaming processing frameworks}
+\label{sec:sec01}
+\subparagraph{Apache storm}
+\label{sec:sec01}
+Apache Storm is a stream processing framework that focuses on extremely low latency and is perhaps the best option for workloads that require near real-time processing. It can handle very large quantities of data with and deliver results with less latency than other solutions.
+Storm stream processing works by orchestrating DAGs (Directed Acyclic Graphs) in a framework it calls topologies.
+The topologies are composed of:
+\begin{itemize}
+  \item Streams: Conventional data streams. This is unbounded data that is continuously arriving at the system.
+  \item Spouts: Sources of data streams at the edge of the topology. These can be APIs, queues, etc. that produce data to be operated on.
+  \item Bolts: Bolts represent a processing step that consumes streams, applies an operation to them, and outputs the result as a stream. Bolts are connected to each of the spouts, and then connect to each other to arrange all of the necessary processing. At the end of the topology, final bolt output may be used as an input for a connected system.
+\end{itemize}
+Storm is probably the best solution currently available for near real-time processing. It is able to handle data with extremely low latency for workloads that must be processed with minimal delay. Storm is often a good choice when processing time directly affects user experience, for example when feedback from the processing is fed directly back to a visitor's page on a website.\\
+Storm with Trident gives you the option to use micro-batches instead of pure stream processing. While this gives users greater flexibility to shape the tool to an intended use, it also tends to negate some of the software's biggest advantages over other solutions. That being said, having a choice for the stream processing style is still helpful.
+For pure stream processing workloads with very strict latency requirements, Storm is probably the best mature option. It can guarantee message processing and can be used with a large number of programming languages. Because Storm does not do batch processing, you will have to use additional software if you require those capabilities. If you have a strong need for exactly-once processing guarantees, Trident can provide that. However, other stream processing frameworks might also be a better fit at that point.
+
+\subparagraph{Samza}
+\label{sec:sec01}
+Apache Samza is a good choice for streaming workloads where Hadoop and Kafka are either already available or sensible to implement. Samza itself is a good fit for organizations with multiple teams using (but not necessarily tightly coordinating around) data streams at various stages of processing. Samza greatly simplifies many parts of stream processing and offers low latency performance. It might not be a good fit if the deployment requirements aren't compatible with your current system, if you need extremely low latency processing, or if you have strong needs for exactly-once semantics.
+\paragraph{Hybrid processing frameworks}
+\label{sec:sec01}
+\subparagraph{Apache Spark }
+\label{sec:sec01}
+Spark is a great option for those with diverse processing workloads. Spark batch processing offers incredible speed advantages, trading off high memory usage. Spark Streaming is a good stream processing solution for workloads that value throughput over latency. 
+
+\subparagraph{Apache Flink}
+\label{sec:sec01}
+Flink offers both low latency stream processing with support for traditional batch tasks. 
+Flink is probably best suited for organizations that have heavy stream processing requirements and some batch-oriented tasks. 
+Its compatibility with native Storm and Hadoop programs, and its ability to run on a YARN-managed cluster can make it easy to evaluate. 
+Its rapid development makes it worth keeping an eye on.
+
+
+\paragraph{Summary} :\\
+\label{sec:sec01}   
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/BigDataProcessing}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
+Infact, as before there is no best processing framework . Each one of them is good for a specific usage.
+So three cases occur:
+\begin{itemize}
+  \item Only Batch processing : Hadoop and MapReduce would be a great solution.
+  \item Only Streaming processing : Apache Strom is now undefeatable.
+  \item Hybrid processing : Spark would be a very good solution..
+\end{itemize}
+
+And as we would like to implement the lambda architecture and we definitely want to go with the hybrid processing 
+option. We choose as a data processing engine for our batch and streaming layers "Apache Spark".
+\subsubsection{Conclusion}
+\label{sec:sec01}
+Finally, we are now able to gather all pieces into one. This comparative study supports our choices in 
+each layer. In the next section we will talk about our microservices architecture.
+
+\subsection{Architecture microservice}
+\label{sec:sec01}
+Our application is divided in two parts, the first one is the big data part explained 
+in the last section and the second one is the microservices part.
+ The microservices architecture presents so many patterns. 
+ In this section, we will introduce some microservices patterns, 
+ then we choose for our application the most appropriate one. 
+ After fixing all required patterns we finally move to define our microservices architecture.
+
+\subsubsection{Decomposition}
+\label{sec:sec01}
+The microservice architecture structures an application as a set of loosely coupled services.The application 
+should be decomposed in a way so that most new and changed requirements only affect a single service.
+So the question now is how to decompose an application into services?
+the next two paragraphs show some useful decomposition strategy .
+\paragraph{Decompose by business capability}
+\label{sec:sec01}
+Define services corresponding to business capabilities. 
+A business capability is a concept from business architecture modeling. 
+It is something that a business does in order to generate value. 
+A business capability often corresponds to a business object.
+\paragraph{Decompose by subdomain}
+\label{sec:sec01}
+Define services corresponding to Domain-Driven Design (DDD) subdomains. 
+DDD refers to the application's problem space - the business - as the domain.
+ A domain is consists of multiple subdomains. 
+ Each subdomain corresponds to a different part of the business.
+
+\paragraph{Summary}
+\label{sec:sec01}
+Dividing services upon business capabilities is more suitable for us.
+The decomposition by business capability present so much benefits , some of them are :
+\begin{itemize}
+  \item Stable architecture since the business capabilities are relatively stable
+  \item Development teams are cross-functional, autonomous, and organized around delivering business value rather than technical features
+  \item Services are cohesive and loosely coupled
+\end{itemize}
+
+\subsubsection{Cross cutting concerns}
+\label{sec:sec01}
+The cross-cutting concern include:
+\begin{itemize}
+  \item Externalized configuration - includes credentials, and network locations of external services such as databases and message brokers
+  \item Logging - configuring of a logging framework such as log4j or logback
+  \item Health checks - a url that a monitoring service can “ping” to determine the health of the application
+  \item Metrics - measurements that provide insight into what the application is doing and how it is performing
+  \item Distributed tracing - instrument services with code that assigns each external request an unique identifier that is passed between services.
+\end{itemize}
+ There are so much services. we will frequently create new services, each of them will only take days or 
+ weeks to develop. we cannot afford to spend a few days configuring the mechanisms to handle cross-cutting concerns. 
+ What is even worse is that in a microservice architecture there are additional cross-cutting concerns 
+ that we have to deal with including service registration and discovery.
+ So the solution is to build our microservices using a microservice chassis framework, 
+ which handles cross-cutting concerns.
+\paragraph{Microservice chassis}
+\label{sec:sec01}
+The major benefit of a microservice chassis is that we can quickly and easy get started with developing a
+ microservice.
+we need a microservice chassis for each programming language/framework that we want to use.
+ This can be an obstacle to adopting a new programming language or framework.
+ There are so much microservice chassis :
+\begin{itemize}
+  \item Spring Boot and Spring Cloud (java)
+  \item Dropwizard (java)
+  \item Gizmo (go)
+  \item Micro (go)
+  \item Go kit (go)
+ \end{itemize}
+\paragraph{Summary}
+\label{sec:sec01}
+We didn't make a comparative study on chassis frameworks, 
+Spring boot and Spring Cloud have a big community and present so much quick start features.
+So we choose to go with Spring boot and Spring cloud as a chassis framework.
+
+\subsubsection{External API}
+\label{sec:sec01}
+Data in the Microservice architecture pattern is spread over multiple service. Each client needs to fetch information from all of these services.
+The question now is how do the clients of a Microservices-based application access the individual services?
+Exposing an Api gateway could be a great solution :
+\paragraph{API gateway} :\\
+\label{sec:sec01}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/apiGatway}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+Implement an API gateway that is the single entry point for all clients.
+ The API gateway handles requests in one of two ways. 
+ Some requests are simply proxied/routed to the appropriate service. 
+ It handles other requests by fanning out to multiple services.
+the API gateway can expose a different API for each client.
+The API gateway might also implement security, e.g. verify that the client is authorized to perform the request
+\paragraph{Summary}
+\label{sec:sec01}
+Exposing an Api gateway is a bright idea. To implement this solution there is some tools that can handle this :
+\begin{itemize}
+  \item Kong API Api Gatway
+  \item Zuul and Spring Cloud
+ \end{itemize}
+As we choosed Spring boot and Spring Cloud for our application chassis framework,
+ we definitely go with the "Zuul and Spring cloud" api gatway option.
+\subsubsection{Data management}
+\label{sec:sec01}
+Most services need to persist data in some kind of database. The question is 
+what's the database architecture in a microservices application ?
+\paragraph{Database per Service}
+\label{sec:sec01}
+Keep each microservice's persistent data private to that service and accessible only via its API. 
+The service's database is effectively part of the implementation of that service. It cannot be accessed directly by other services.
+There are a few different ways to keep a service's persistent data private.
+\begin{itemize}
+  \item Private-tables-per-service
+  \item Schema-per-service
+  \item Database-server-per-service
+ \end{itemize}
+\paragraph{Shared database}
+\label{sec:sec01}
+Use a (single) database that is shared by multiple services. 
+Each service freely accesses data owned by other services using local ACID transactions.
+
+\paragraph{Summary}
+\label{sec:sec01}
+choosing a the option of database per service could be a great solution. This pattern present some benefits :
+\begin{itemize}
+  \item Helps ensure that the services are loosely coupled. 
+  Changes to one service's database does not impact any other services.
+  \item Each service can use the type of database that is best suited to its needs
+ \end{itemize}
+so we choose to go with the the database per service choice.
+\newpage
+\subsubsection{Conclusion}
+\label{sec:sec01}
+In this section we have fixed all patterns and choosed which technologies we would like to implement , 
+in the next section we move to talk about our deployment strategy.
+
+\subsection{Deployment architecture} 
+\label{sec:sec01}
+Our system now is a set of services. Each service is deployed as a set of service instances for throughput and availability.
+The question now is how are services packaged and deployed?
+\paragraph{Multiple service instances per host} :\\
+\label{sec:sec01}
+Run multiple instances of different services on a host (Physical or Virtual machine).
+There are various ways of deploying a service instance on a shared host including:
+\begin{itemize}
+  \item Deploy each service instance as a JVM process. For example, a Tomcat or Jetty instances per service instance.
+  \item Deploy multiple service instances in the same JVM. For example, as web applications.
+ \end{itemize}
+\paragraph{Service instance per host} :\\
+\label{sec:sec01}
+Deploy each single service instance on its own host
+\paragraph{Service instance per VM} :\\
+\label{sec:sec01}
+Package the service as a virtual machine image and deploy each service instance as a separate VM
+\paragraph{Service instance per Container} :\\
+\label{sec:sec01}
+Package the service as a (Docker) container image and deploy each service instance as a container
+\paragraph{Summary} :\\
+\label{sec:sec01}
+Deploying our services in containers is the most appropriate option for us. Due resource and budget limits, our application
+is deployed under a VM that conatin many containers carrying services (service per container).
+This approach has some benefits :   
+\begin{itemize}
+  \item It is straightforward to scale up and down a service by changing the number of container instances.
+  \item The container encapsulates the details of the technology used to build the service. All services are, for example, started and stopped in exactly the same way.
+  \item Each service instance is isolated.
+  \item Containers are extremely fast to build and start. For example, it’s 100x faster to package an application as a Docker container than it is to package it as an AMI. Docker containers also start much faster than a VM since only the application process starts rather than an entire OS.
+  \item A container imposes limits on the CPU and memory consumed by a service instance.  
+ \end{itemize}
+
+\section{ Conclusion }
+\label{subsec:subsec01}
+Two main parts are waiting to be implemented, the first one is the lambda architecture.
+The second one is the microservices approach and the application logic.
+In our scoope , due to time limits we will not be able to implement all patterns , we will just make the most importants one.
+In the next chapter we move to our application Design.\\
+\textit{
+Notice :\\
+In our scoope , due to time limits we will not be able to implement all functionalities and patterns , we will just make the most importants one.
+}
+
+%=========================================================

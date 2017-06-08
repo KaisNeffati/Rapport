@@ -1,0 +1,441 @@
+%
+% File: chap01.tex
+% Author: Victor F. Brena-Medina
+% Description: Introduction chapter where the biology goes.
+%
+\let\textcircled=\pgftextcircled
+\chapter{Project Scope}
+\label{chap:intro}
+
+\initial{I}n this chapter, we introduce the host company "Sofrecom Tunisie". 
+ Then we explain the project by putting it in context , exposing the problematic and proposing a solution. 
+ Finally, we describe the development methodologies and the analysis/Design one.
+
+%=======
+\section{Host company}
+\label{sec:sec01}
+\subsection{Sofrecom}
+\label{sec:sec01}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/FilialesEtClients}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+Sofrecom, an Orange subsidiary, has developed over 50 years unique know-how about operators businesses, 
+making it a world leading specialist in telecommunications consultancy and engineering.Its experience of
+ mature and emerging markets, combined with its deep understanding of the structuring changes affecting 
+ the telecoms market, make it a valued partner for operators, governments and international investors.
+  In recent years, 200 major players in over 100 countries have entrusted strategic and operational projects to Sofrecom.
+  Sofrecom is above all a network of men and women, a powerful network of know-how and expertise that ties its 
+  personnel to customers, Orange experts and industrial and local partners.Sofrecom's Know-How Network 
+  is also the guarantee of effective transfer of knowhow and skills for sustainable transformation based 
+  on internationally certified methodologies.
+
+\subsection{Sofrecom Tunisie}
+\label{sec:sec01}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.4\textheight]{fig01/sofrecomfields}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+Sofrecom Tunisie, a young company in the local market, inaugurated in October 2012, is the youngest and largest subsidiary of the Sofrecom group in the Africa and Middle East zone.
+In 5 years it has positioned itself as a major player in consulting and engineering in telecommunications.
+More than 400 Experts, Sofrecom Tunisia has acquired its strength and credibility through hundreds of diversified international projects allowing us to be one step ahead of our competitors.
+As part of the Orange Group, with an international reputation, working for two major Orange customers: DSI France and OLS
+
+
+\section{Problematic}
+\label{subsec:subsec01}
+
+When we talk about selling products and increasing revenues, we totally refer to making offers and publishing promotions. So many companies 
+are using a variety of ways to promote their service. One of them is the Orange group. Orange Group is spending a lot of money on marketing campaigns. 
+Orange is using SMS, MMS and TV emission to be attached to it's clients which is not always the best way.As many marketing experts said, the key success of a marketing strategy is to know where,
+ when and to whom a product and/or a service should be exposed.
+
+A team of engineers in Sofrecom Tunisia, and in an innovation scope, proposes to make a new dimension in Orange marketing strategy. The idea is to provide
+a mobile platfrom that use proximity to allow users to see promotions ,services ,Events ,Sensitization ... depending on their intersts and their locations.
+This application will  have a free, location-based orange ibeacons , use device's GPS capability to locate Orange ibeacons.
+Subscribers can capture gifts and promotions when nearby ibeacon using BLE devices through application.
+The Backend engine of this application gets customers relevant information (rate plan, balance, services,...) in order to propose a bespoke award.
+This idea brings some added values ; promote Orange low-rated services usage ,increase customers loyalty ,trigger based promotions and gifts as per 
+user preferences and targeting subscribers based on usages and consumption habits (Voices, SMS, Data, TopUp...).
+
+Bringing this application to life require implementing a system that allows us to recommend a service and track user behavior. 
+This system should be apt to deal with a huge amount of data (Orange Clients), a Big data should be analysed.
+ We were influenced the most by YouTube, which, in first use, exposes videos in an arbitrary way. 
+ As users begin to interact with the dashboard YouTube recommend the right list of videos. YouTube takes into consideration recent and old user data. 
+ Once the user changes his behavior YouTube will try to rebalance the dashboard view.Our system finally should be able to analyse big data, 
+ make recommendation based on interests and proximity and support the logic of application in the backend.
+
+\section{Solution}
+\label{subsec:subsec01}
+
+\subsection{Intorduction}
+\label{subsec:subsec01}
+Our application is divided mainly in two parts,
+ a part responsible for data analytics and anther one for application logic. Many patterns and type of architecture are required. 
+\subsection{Big Data Architecture}
+\label{subsec:subsec01}
+
+\subsubsection{Lambda Architecture}
+\label{subsec:subsec01}
+is a data-processing architecture designed to handle massive quantities of data by taking advantage of both batch- and stream-processing methods. 
+This approach to architecture attempts to balance latency, throughput, and fault-tolerance by using batch processing to provide comprehensive and accurate 
+views of batch data, while simultaneously using real-time stream processing to provide views of online data. 
+The two view outputs may be joined before presentation. The rise of lambda architecture is correlated with the growth of big data, real-time analytics, 
+and the drive to mitigate the latencies of map-reduce. Lambda architecture depends on a data model with an append-only, immutable data source that
+ serves as a system of record.It is intended for ingesting and processing timestamped events that are appended to existing events rather than 
+ overwriting them. State is determined from the natural time-based ordering of the data.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/lambda}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+\paragraph{Batch Layer}
+\label{subsec:subsec01}
+Precomputes results using a distributed processing system that can handle very large quantities of data. 
+The batch layer aims at perfect accuracy by being able to process all available data when generating views. 
+This means it can fix any errors by recomputing based on the complete data set, then updating existing views. 
+Output is typically stored in a read-only database, with updates completely replacing existing precomputed views.
+\paragraph{Streaming Layer}
+\label{subsec:subsec01}
+The speed layer processes data streams in real time and without the requirements of fix-ups or completeness. This layer sacrifices throughput as it aims 
+to minimize latency by providing real-time views into the most recent data. Essentially, the speed layer is responsible for filling the "gap" caused by the 
+batch layer's lag in providing views based on the most recent data. This layer's views may not be as accurate or complete as the ones eventually 
+produced by the batch layer, but they are available almost immediately after data is received, and can be replaced when the batch layer's views for the 
+same data become available.
+\paragraph{Serving Layer}
+\label{subsec:subsec01}
+Output from the batch and speed layers are stored in the serving layer, which responds to ad-hoc queries by returning precomputed views or building views from the processed data.
+\subsubsection{Kappa Architecture}
+\label{subsec:subsec01}
+is a simplification of Lambda Architecture. A Kappa Architecture system is like a Lambda Architecture system with the batch processing system removed. To replace batch processing, data is simply fed through the streaming system quickly.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/kappa}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
+\subsubsection{Synthesis}
+\label{subsec:subsec01}
+The question now is which one fit the best for us? In fact, choosing whether to work with lambda or kappa architecture depends on the use case, 
+so if we treat the same way streaming and existing data the kappa architecture would be a great solution. And if we treat them differently, 
+we should implement the lambda one. In our case, promotions will be recommended upon historical and streaming data. So the best architecture for 
+our case is the lambda architecture. Still, one thing, Which tools shall we use!
+
+
+\subsection{Application Architecture}
+\label{subsec:subsec01}
+we are developing a server-side enterprise application that handle the logic of application. 
+It must support a variety of different clients including desktop browsers, mobile browsers and native mobile applications.
+ This application might also expose some APIs for 3rd parties to consume. It might also integrate with other applications via either web services 
+ or a message broker. The application handles requests (HTTP requests and messages) by executing business logic; 
+ accessing a database; exchanging messages with other systems; and returning a HTML/JSON/XML response.
+  There are logical components corresponding to different functional areas of the application.
+
+\subsubsection{Monolithic application}
+\label{subsec:subsec01}
+One of the solutions is to build an application with a monolithic architecture.The application consists of several components and deployed as a single 
+monolithic application. For example, a Java web application consists of a single WAR file that runs on a web container such as Tomcat.
+  A Rails application consists of a single directory hierarchy deployed using either, for example, Phusion Passenger on Apache/Nginx or JRuby on Tomcat.
+   we can run multiple instances of the application behind a load balancer in order to scale and improve availability.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.5\textheight]{fig01/monolithic}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
+
+This solution has a number of benefits:
+\begin{itemize}
+  \item Simple to develop - the goal of current development tools and IDEs is to support the development of monolithic applications
+  \item Simple to deploy - you simply need to deploy the WAR file (or directory hierarchy) on the appropriate runtime
+  \item Simple to scale - you can scale the application by running multiple copies of the application behind a load balancer
+\end{itemize}
+
+However, once the application becomes large and the team grows in size, this approach has a number of drawbacks that become increasingly significant:
+
+\begin{itemize}
+    \item The large monolithic code base intimidates developers, especially ones who are new to the team. The application can be difficult to understand and modify. As a result, development typically slows down. Also, because there are not hard module boundaries, modularity breaks down over time. Moreover, because it can be difficult to understand how to correctly implement a change the quality of the code declines over time. It's a downwards spiral.
+
+    \item Overloaded IDE - the larger the code base the slower the IDE and the less productive developers are.
+
+    \item Overloaded web container - the larger the application the longer it takes to start up. This had have a huge impact on developer productivity because of time wasted waiting for the container to start. It also impacts deployment too.
+
+    \item Continuous deployment is difficult - a large monolithic application is also an obstacle to frequent deployments. In order to update one component you have to redeploy the entire application. This will interrupt background tasks (e.g. Quartz jobs in a Java application), regardless of whether they are impacted by the change, and possibly cause problems. There is also the chance that components that haven't been updated will fail to start correctly. As a result, the risk associated with redeployment increases, which discourages frequent updates. This is especially a problem for user interface developers, since they usually need to iterative rapidly and redeploy frequently.
+
+    \item Scaling the application can be difficult - a monolithic architecture is that it can only scale in one dimension. On the one hand, it can scale with an increasing transaction volume by running more copies of the application. Some clouds can even adjust the number of instances dynamically based on load. But on the other hand, this architecture can't scale with an increasing data volume. Each copy of application instance will access all of the data, which makes caching less effective and increases memory consumption and I/O traffic. Also, different application components have different resource requirements - one might be CPU intensive while another might memory intensive. With a monolithic architecture we cannot scale each component independently
+
+    \item Obstacle to scaling development - A monolithic application is also an obstacle to scaling development. Once the application gets to a certain size its useful to divide up the engineering organization into teams that focus on specific functional areas. For example, we might want to have the UI team, accounting team, inventory team, etc. The trouble with a monolithic application is that it prevents the teams from working independently. The teams must coordinate their development efforts and redeployments. It is much more difficult for a team to make a change and update production.
+
+    \item Requires a long-term commitment to a technology stack - a monolithic architecture forces you to be married to the technology stack (and in some cases, to a particular version of that technology) you chose at the start of development . With a monolithic application, can be difficult to incrementally adopt a newer technology. For example, let's imagine that you chose the JVM. You have some language choices since as well as Java you can use other JVM languages that inter-operate nicely with Java such as Groovy and Scala. But components written in non-JVM languages do not have a place within your monolithic architecture. Also, if your application uses a platform framework that subsequently becomes obsolete then it can be challenging to incrementally migrate the application to a newer and better framework. It's possible that in order to adopt a newer platform framework you have to rewrite the entire application, which is a risky undertaking.
+\end{itemize}
+
+\subsubsection{Microservices Architecture}
+\label{subsec:subsec01}
+another solution is to define an architecture that structures the application as a set of loosely coupled, collaborating services. 
+This approach corresponds to the Y-axis of the Scale Cube. Each service implements a set of narrowly, related functions. For example, an application might 
+consist of services such as the order management service, the customer management service etc.Services communicate using either synchronous protocols such 
+as HTTP/REST or asynchronous protocols such as AMQP. Services can be developed and deployed independently of one another. 
+Each service has its own database in order to be decoupled from other services. Data consistency between services is maintained using 
+an event-driven architecture .
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.4\textheight]{fig01/microservices}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
+This solution has a number of benefits:
+
+\begin{itemize}
+\item Each microservice is relatively small ( 
+Easier for a developer to understand,
+The IDE is faster making developers more productive,
+The application starts faster, which makes developers more productive, and speeds up deployments )
+\item Each service can be deployed independently of other services - easier to deploy new versions of services frequently
+
+\item Easier to scale development. It enables you to organize the development effort around multiple teams. Each (two pizza) team is owns and is responsible for one or more single service. Each team can develop, deploy and scale their services independently of all of the other teams.
+
+\item Improved fault isolation. For example, if there is a memory leak in one service then only that service will be affected. The other services will continue to handle requests. In comparison, one misbehaving component of a monolithic architecture can bring down the entire system.
+
+\item Each service can be developed and deployed independently
+
+\item Eliminates any long-term commitment to a technology stack. When developing a new service you can pick a new technology stack. Similarly, when making major changes to an existing service you can rewrite it using a new technology stack.
+\end{itemize}
+
+
+
+This solution has a number of drawbacks:
+\begin{itemize}
+
+\item Developers must deal with the additional complexity of creating a distributed system ( Developer tools/IDEs are oriented on building monolithic applications and don't provide explicit support for developing distributed applications.
+Testing is more difficult ,
+Developers must implement the inter-service communication mechanism ,
+Implementing use cases that span multiple services without using distributed transactions is difficult ,
+Implementing use cases that span multiple services requires careful coordination between the teams )
+\item Deployment complexity. In production, there is also the operational complexity of deploying and managing a system comprised of many different service types.
+\item Increased memory consumption. The microservice architecture replaces N monolithic application instances with NxM services instances. If each service runs in its own JVM (or equivalent), which is usually necessary to isolate the instances, then there is the overhead of M times as many JVM runtimes. Moreover, if each service runs on its own VM (e.g. EC2 instance), as is the case at Netflix, the overhead is even higher.
+\end{itemize}
+
+\subsection{Synthesis}
+\label{subsec:subsec01}
+Choosing whether to work with microservices or monolithic application is depending on the project maturity. So when developing the first
+ version of an application, we often do not have the problems that the microservice approach solves. 
+ Moreover, using an elaborate, distributed architecture will slow down development. But looking to the benefits that offer the microservices architecture is
+ really impressive.And as this project is dedicated to a big company with a big customer range. This application should be apt to scale up quickly and
+ ready to add so much features. So implementing the microservices architecture is a great choice.
+ The question now is which tools or patterns shall we use ?	
+
+
+%=========================================================
+
+\section{Development methodology}
+\label{subsec:subsec01}
+
+\subsection{Introduction}
+\label{subsec:subsec01}
+2TUP is a unified process (i.e. a software development
+process) built on the UML modeling language.
+Every process answers the following main characteristics: 
+\begin{itemize}
+  \item It is an incremental process, allowing a better
+technical and functional risk management and thus
+constituting the deadlines and the costs control. 
+  \item It is an iterative process. The degrees of abstraction
+are increasingly precise at each iteration. 
+  \item It is component oriented, offering flexibility to the
+model and supporting the re-use. 
+  \item It is user oriented because built from their
+expectations. 
+\end{itemize}
+The 2TUP process answers to the constraints of change of
+the information systems subjected themselves to two types
+of constraints: functional constraints and technical
+constraints as shows it the following diagram: 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.1\textheight]{fig01/2TUPFeature}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+In concrete terms, the process is modeled by two branches
+(tracks): 
+\begin{itemize}
+  \item A functional track (capitalization of knowledge
+trade)
+  \item A technical track (re-use of a technical knowhow).
+\end{itemize}
+Then these two tracks amalgamate for the realization of
+the system. This is why this process is still called Yshaped
+process.
+With this development process, a model is essential in
+order to anticipate the results. A model can be used with
+each step of the development with an increasing detailed
+manner. The industrial standard of object modeling,
+UML, was selected as the development tool. It appeared
+very difficult to consider the 2TUP process without using
+UML and, more particularly UML 2.0 which support the
+oriented design component.
+
+\subsection{Implementation}
+\label{subsec:subsec01}
+\subsubsection{Introduction}
+\label{subsec:subsec01}
+The first phase of the implementation starts with the
+preliminary study which introduces the project. The
+specifications, initial document of the functional and
+technical needs, are partly the result of this work. It is
+supplemented by the modeling of the total system context.
+Not everything is to be described at this stage but simply
+to identify the external entities interacting (actors), to list
+the interactions (messages) and to represent this unit on a
+model (context).
+\subsubsection{Feature track}
+\label{subsec:subsec01}
+The functional branch makes an inventory of the
+functional needs and analyzes it. This phase formalizes
+and specifies the elements of the preliminary study. 
+The applied use case technique translates the whole
+interactions between the system and the actors. The
+obtained use cases are then organized (treated on a
+hierarchical basis, generalized, specialized...). They make
+it possible to identify the classes and they permit the
+oriented object modeling generated in the analysis part. 
+\subsubsection{Technical track }
+\label{subsec:subsec01}
+The technical branch lists the technical needs and
+proposes a generic design validated by a prototype. The
+pre-necessary techniques revealed in the preliminary
+study, showing the operational needs and the strategic
+choices of development, lead to the development of the
+construction process. To do this, several stages are
+necessary: 
+\begin{itemize}
+  \item The inventory of technical specifications related
+to the hardware.
+  \item The inventory of the software specifications. 
+\end{itemize}
+
+\subsubsection{Middle track }
+\label{subsec:subsec01}
+The medium branch supports the preliminary design, the
+detailed design, coding, the tests and the validation. The
+preliminary design is one of the most sensitive steps of the
+2TUP process. It represents the fusion of the functional
+and technical tracks. It finishes when the deployment
+model (working stations, architectures), the operating
+model (components, applications), the logical model
+(classes diagrams, classes), interfaces (users and
+components) and the software configuration model are
+defined. 
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.6\textheight]{fig01/2TUP}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
+The detailed design conceives and documents very exactly
+the code that will be generated. It is largely founded on
+UML representations and implements, in an iterative
+manner, a system construction process to obtain a "model
+ready to code".
+
+The various components carried out in the detailed design
+are coded. The code units obtained are tested as they are
+written and produced. The validation, called “recipe” step,
+consists of the homologation of the developed system
+functions. 
+%=========================================================
+
+\section{Analysis and design methodology }
+\label{subsec:subsec01}
+
+\subsection{Introduction}
+\label{subsec:subsec01}
+Large enterprise applications - the ones that execute core business applications, and keep a company going - must be more than just a bunch of code modules. 
+They must be structured in a way that enables scalability, security, and robust execution under stressful conditions, and their structure - frequently referred 
+to as their architecture - must be defined clearly enough that maintenance programmers can (quickly!) find and fix a bug that shows up long after the original 
+authors have moved on to other projects. That is, these programs must be designed to work perfectly in many areas, and business functionality is not the 
+only one (although it certainly is the essential core). Of course a well-designed architecture benefits any program, and not just the largest ones as we've 
+singled out here. We mentioned large applications first because structure is a way of dealing with complexity, so the benefits of structure (and of modeling 
+and design, as we'll demonstrate) compound as application size grows large. Another benefit of structure is that it enables code reuse: Design time is the 
+easiest time to structure an application as a collection of self-contained modules or components. Eventually, enterprises build up a library of models of 
+components, each one representing an implementation stored in a library of code modules. When another application needs the same functionality, 
+the designer can quickly import its module from the library. At coding time, the developer can just as quickly import the code module into the application.  
+
+Modeling is the designing of software applications before coding. Modeling is an Essential Part of large software projects, and helpful to medium and even 
+small projects as well. A model plays the analogous role in software development that blueprints and other plans (site maps, elevations, physical models) 
+play in the building of a skyscraper. Using a model, those responsible for a software development project's success can assure themselves that business 
+functionality is complete and correct, end-user needs are met, and program design supports requirements for scalability, robustness, security, extendibility, 
+and other characteristics, before implementation in code renders changes difficult and expensive to make. Surveys show that large software projects have a 
+huge probability of failure - in fact, it's more likely that a large software application will fail to meet all of its requirements on time and on budget 
+than that it will succeed. 
+\subsection{Abstraction}
+\label{subsec:subsec01}
+Models help us by letting us work at a higher level of abstraction. A model may do this by hiding or masking details, bringing out the big picture, 
+or by focusing on different aspects of the prototype. In UML 2.0, we can zoom out from a detailed view of an application to the environment where it executes, 
+visualizing connections to other applications or, zoomed even further, to other sites. Alternatively, we can focus on different aspects of the application, 
+such as the business process that it automates, or a business rules view. The new ability to nest model elements, added in UML 2.0, 
+supports this concept directly. 
+
+The OMG's Unified Modeling Language (UML) helps specify, visualize, and document models of software systems, including their structure and design, 
+in a way that meets all of these requirements. (We can use UML for business modeling and modeling of other non-software systems too.) 
+Using any one of the large number of UML-based tools on the market, we can analyze our future application's requirements and design a solution that meets 
+them, representing the results using UML 2.0's thirteen standard diagram types. 
+
+We can model just about any type of application, running on any type and combination of hardware, operating system, programming language, 
+and network, in UML. Its flexibility let us model distributed applications that use just about any middleware on the market. 
+Built upon  fundamental OO concepts including class and operation, it's a natural fit for object-oriented languages and environments such as C++, Java, 
+but we can use it to model non-OO applications as well in, for example, Fortran, VB, or COBOL. 
+UML Profiles (that is, subsets of UML tailored for specific purposes) help us model Transactional, Real-time, and Fault-Tolerant systems in a natural way. 
+\subsection{Models VS. Methodologies}
+\label{subsec:subsec01}
+The process of gathering and analyzing an application's requirements, and incorporating them into a program design, is a complex one and the industry currently
+ supports many methodologies that define formal procedures specifying how to go about it. One characteristic of UML - in fact, the one that enables 
+ the widespread industry support that the language enjoys - is that it is methodology-independent. Regardless of the methodology that we use to perform our
+  analysis and design, we can use UML to express the results. And, using XMI (XML Metadata Interchange, another OMG standard), we can transfer 
+  our UML model from one tool into a repository, or into another tool for refinement or the next step in our chosen development process. 
+  These are the benefits of standardization!
+UML 2.0 defines thirteen types of diagrams, divided into three categories: Six diagram types represent static 
+application structure; three represent general types of behavior; and four represent different aspects of interactions:
+
+Structure Diagrams include the Class Diagram, Object Diagram, Component Diagram, Composite Structure Diagram, Package Diagram, and Deployment Diagram. 
+Behavior Diagrams include the Use Case Diagram (used by some methodologies during requirements gathering); Activity Diagram, and State Machine Diagram. 
+Interaction Diagrams, all derived from the more general Behavior Diagram, include the Sequence Diagram, Communication Diagram, Timing Diagram, and 
+Interaction Overview Diagram.
+
+\subsection{UML 2.0}
+\label{subsec:subsec01}
+OMG have already integrated the new features into this writeup, and here's a summary: 
+
+Nested Classifiers: This is an extremely powerful concept. In UML, almost every model building block we work with (classes, objects, components, 
+behaviors such as activities and state machines, and more) is a classifier. In UML 2.0, we can nest a set of classes inside the component that manages 
+them, or embed a behavior (such as a state machine) inside the class or component that implements it. This capability also let us build up complex behaviors 
+from simpler ones, the capability that defines the Interaction Overview Diagram. We can layer different levels of abstraction in multiple ways: 
+For example, we can build a model of our Enterprise, and zoom in to embedded site views, and then to departmental views within the site, 
+and then to applications within a department. Alternatively, we can nest computational models within a business process model. 
+OMG's Business Enterprise Integration Domain Task Force (BEI DTF) is currently working on several interesting new standards in business process 
+and business rules. 
+Improved Behavioral Modeling: In UML 1.X, the different behavioral models were independent, but in UML 2.0, they all derive from a fundamental 
+definition of a behavior (except for the Use Case, which is subtly different but still participates in the new organization). 
+Improved relationship between Structural and Behavioral Models: As we pointed out under Nested Classifiers, UML 2.0 let us designate that a behavior 
+represented by (for example) a State Machine or Sequence Diagram is the behavior of a class or a component. 
+That is, the new language goes well beyond the Classes and Objects well-modeled by UML 1.X to add the capability to represent not 
+only behavioral models, but also architectural models, business process and rules, and other models used in many different parts of computing and
+ even non-computing disciplines. 
+
+\section{ Conclusion }
+\label{subsec:subsec01}
+Two main parts are waiting to be implemented, the first one is the lambda architecture and the data analytics strategy. the second one is the microservices approach and the application logic.
+
+%=========================================================

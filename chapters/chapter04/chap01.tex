@@ -1,0 +1,161 @@
+%
+% File: chap01.tex
+% Author: Victor F. Brena-Medina
+% Description: Introduction chapter where the biology goes.
+%
+\let\textcircled=\pgftextcircled
+\chapter{Implementation}
+\label{chap:intro}
+
+\initial{I}
+%=======
+\section{Work environnement}
+\label{sec:sec01}
+This part presents the Hardware and Software environment available for this project.
+\subsection{Hardware environnement}
+\label{sec:sec01}
+In our project we developed our application using a computer with the following characteristics : 
+\begin{itemize}
+  \item Process Intel Core i5 4310M .
+  \item Memory RAM: 16 GB .
+  \item Space Discs: 500 GB.
+\end{itemize}
+
+\section{Software environnement}
+\label{sec:sec01}
+We've used for our project the following Software :
+\begin{itemize}
+  \item VMware Workstation : Our application is deployed under VMware Workstation virtualization
+   platform as a set of decoupled service. Each service per container.
+  \item Centos 7 : Our application operating system is Centos 7 carring Docker as demon. 
+  \item Docker : is our main virtualization tool and our containers manager.
+  \item Intellij idea : is our application Back End IDE , we used it for Scala and java (spring) developement.
+  \item Visual Studio Code : is our application Front End IDE , we used it for angular 2 and webpack (TypeScript developement).
+\end{itemize}
+\section{Realized work}
+\label{sec:sec01}
+\subsection{Environnement preparation}
+\label{sec:sec01}
+Our application require some containers preparation. The following list contain all needed containers.
+\begin{itemize}
+  \item Kafka container : used for collecting data and stream them through a message queue. This container does not existe in dockerhub repository so we should Dockerize it(Dockerize
+   kafka means create a container that contain kafka)
+  \item Zookeeper container : used to save brokers address and messages offsets . this container exists in docker hub.
+  \item Scala container : used to build the Hadoop container.This container does not existe in dockerhub repository so we should Dockerize it
+  \item Hadoop container : used to build the spark container and provide HDFS persistance and YARN (ressource manager) for the spark jobs. This container does not existe with
+   the Hadoop 2.7 and centos 7 version, so we should Dockerize it
+  \item Spark container : used to to consume the data from kafka , process it then feed it to the serving layer (persisting results in cassandra).
+  \item Cassandra container : used as a serving layer . this container exists in docker hub , we will be using the 2.2 cassandra version.
+  \item Zeppelin container : used as a notebook to interpret Cassandra and spark then display the results in a dashboard.
+  \item Spring boot containers : we need some containers that carry each one a microservice. This containers just need to have a JVM.
+  \item Mongodb containers : each service is linked to a mongodb container. this containers exists in dockerhub.
+  \item FrontEnd container : container for the angular dashboard.
+\end{itemize}
+\subsubsection{Dockernize Tools}
+\label{sec:sec01}
+In this section we present the process of dockernizing our containers .All installation setps are written 
+in Dockerfiles and each container has an OS kernel. We will be using alpine and centos 7.
+\paragraph{Dockernize Kafka}
+\label{sec:sec01}
+To dockernize this container, we will start by putting a base OS version wich is alpine linux . The next step is the Jdk installation. After fixing all paths we move to install
+kafka.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.2\textheight]{fig01/KafkaContainer}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+\paragraph{Dockernize Scala}
+\label{sec:sec01}
+To dockernize this container, we will start by putting a base OS version wich is centos 7 . 
+The next step is the Jdk installation. After fixing all paths we move to install Scala.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.2\textheight]{fig01/ScalaContainer}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+\paragraph{Dockernize Hadoop}
+\label{sec:sec01}
+To dockernize this container, we will start from the previous Scala container. 
+The next step is the Hadoop installation which takes too much time due to the big configuration amount.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.2\textheight]{fig01/HadoopContainer}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+After dockernizing Hadoop 2.7 we are able now to see some Doshboard.
+Hadoop YARN ResourceManager HTTP UI :
+Hadoop HDFS NameNode HTTP UI :
+\paragraph{Dockernize Spark}
+\label{sec:sec01}
+This container is the main container. We built the last two ones for this step. This container is based on the haddop one . Spark uses HDFS to persist data
+and uses YARN as a ResourceManager.This container require much more then the last one in terms of configuration. We chose to built spark on yarn to benefit the real sparks power. \\
+So spark present in totaly 3 deployment mode :\\
+Standalone deployment: With the standalone deployment one we can statically
+allocate resources on all or a subset of machines in a Hadoop cluster and run
+Spark side by side with Hadoop MR. The user can then run arbitrary Spark jobs
+on his HDFS data. Its simplicity makes this the deployment of choice for many
+Hadoop 1.x users.\\
+Hadoop Yarn deployment: Hadoop users who have already deployed or are
+planning to deploy Hadoop Yarn can simply run Spark on YARN without any pre-
+installation or administrative access required. This allows users to easily
+integrate Spark in their Hadoop stack and take advantage of the full power of
+Spark, as well as of other components running on top of Spark.\\
+Spark In MapReduce (SIMR): For the Hadoop users that are not running YARN
+yet, another option, in addition to the standalone deployment, is to use SIMR to
+launch Spark jobs inside MapReduce. With SIMR, users can start experimenting
+with Spark and use its shell within a couple of minutes after downloading it! This
+tremendously lowers the barrier of deployment, and lets virtually everyone play
+with Spark.\\
+\textit{
+Notice:
+ Spark is an in-Memory data processing framwork so when trying to configure it make sure you put the right RM consumption.
+}
+In our case we ve used 1 core o
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.2\textheight]{fig01/SparkContainer}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.2\textheight]{fig01/SparkFinalContainer}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+\paragraph{Dockernize Zeppelin}
+\label{sec:sec01}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.2\textheight]{fig01/ZeppelinContainer}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+\subsection{Log Producer}
+\label{sec:sec01}
+\subsection{Spark Jobs}
+\label{sec:sec01}
+\subsection{Show Resualts on Apache Zeppelin}
+\label{sec:sec01}
+\subsection{Account Managment}
+\label{sec:sec01}
+\subsection{Promotion Managment}
+\label{sec:sec01}
+\subsection{Dashbord Microservice}
+\label{sec:sec01}
+\subsection{Display Analytics}
+\label{sec:sec01}
+\subsection{Heat Map users}
+\label{sec:sec01}
+\subsection{Summary}
+\label{sec:sec01}
+
+\subsection{General conclusion}
+\label{sec:sec01}
+
+
+%=========================================================

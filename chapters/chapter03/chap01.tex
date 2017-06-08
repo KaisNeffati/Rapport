@@ -1,0 +1,82 @@
+%
+% File: chap01.tex
+% Author: Victor F. Brena-Medina
+% Description: Introduction chapter where the biology goes.
+%
+\let\textcircled=\pgftextcircled
+\chapter{Design}
+\label{chap:intro}
+
+\initial{T}his chapter will be devoted to present the design stage of our system. 
+Designing is a creative process that describes the manner in which our system works.
+We will start by presenting our architecture design, then we move to the general conception and 
+finally the detailed design.	
+
+\section{ General design }
+Our project is essentially based on two main parts as described before.
+ In the next section, we present the architecture of the system.
+\subsection{ Architectural design }
+Architectural design refers to the high level structures of a software system, 
+the discipline of creating such structures, and the documentation of these structures. 
+These structures are needed to reason about the software system. 
+Each structure comprises software elements, relations among them, and properties of both elements and relations.
+It's about making fundamental structural choices which are costly to change once implemented. 
+Architecture design choices include specific structural options from possibilities in the design of software. 
+\subsubsection{ Big Data architectural design }
+In the last chapter we fixed what we will be using in term of patterns and tools.Now,we are able to just
+ start implementing our lambda architecture.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/lambdaImplementation}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+\subsubsection{ Microservices architectural design }
+After fixing all patterns and choosing which technologies we would like to implement , it's time to make the last step.
+The next figure show our microservice application architecture in it's first versions:
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.4\textheight]{fig01/MicroservicesArchitecture}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
+\subsubsection{ Deployment architectural design }
+ We have designed our deployment architecture showing all containers communication and linking pipelines.
+ The next two figures show the big data and the microservices deployment architecture.
+
+ \begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/BigDatadeployment}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/MicroservicesDeployment}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+\newpage
+
+\subsubsection{ Summary }
+
+Finally, the next figure resume all patterns and architecture discribed before.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.8\textheight]{fig01/GlobalArchitecture}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
+\section{ Detailed design }
+\subsection{ Package Diagram}
+\subsection{ Class Diagram }
+\subsection{Object Sequence Diagrams}
+\section{ Conclusion }
+\label{subsec:subsec01}
+Two main parts are waiting to be implemented, the first one is the lambda architecture and the data analytics strategy. the second one is the microservices approach and the application logic.
+
+%=========================================================

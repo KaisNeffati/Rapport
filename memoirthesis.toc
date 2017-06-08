@@ -1,0 +1,163 @@
+\select@language {english}
+\par \penalty \@M \unhbox \voidb@x \hbox {}\hfill {\nag@@warning@vi \bfseries Page}\par \penalty \@M 
+\contentsline {chapter}{List of Tables}{ix}{section*.4}
+\contentsline {chapter}{List of Figures}{xi}{section*.5}
+\contentsline {chapter}{\chapternumberline {1}Project Scope}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Host company}{1}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Sofrecom}{1}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Sofrecom Tunisie}{2}{subsection.1.1.2}
+\contentsline {section}{\numberline {1.2}Problematic}{3}{section.1.2}
+\contentsline {section}{\numberline {1.3}Solution}{3}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Intorduction}{3}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Big Data Architecture}{3}{subsection.1.3.2}
+\contentsline {subsubsection}{\numberline {1.3.2.1}Lambda Architecture}{3}{subsubsection.1.3.2.1}
+\contentsline {paragraph}{Batch Layer}{4}{section*.6}
+\contentsline {paragraph}{Streaming Layer}{4}{section*.7}
+\contentsline {paragraph}{Serving Layer}{5}{section*.8}
+\contentsline {subsubsection}{\numberline {1.3.2.2}Kappa Architecture}{5}{subsubsection.1.3.2.2}
+\contentsline {subsubsection}{\numberline {1.3.2.3}Synthesis}{5}{subsubsection.1.3.2.3}
+\contentsline {subsection}{\numberline {1.3.3}Application Architecture}{5}{subsection.1.3.3}
+\contentsline {subsubsection}{\numberline {1.3.3.1}Monolithic application}{6}{subsubsection.1.3.3.1}
+\contentsline {subsubsection}{\numberline {1.3.3.2}Microservices Architecture}{8}{subsubsection.1.3.3.2}
+\contentsline {subsection}{\numberline {1.3.4}Synthesis}{10}{subsection.1.3.4}
+\contentsline {section}{\numberline {1.4}Development methodology}{10}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Introduction}{10}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {1.4.2}Implementation}{11}{subsection.1.4.2}
+\contentsline {subsubsection}{\numberline {1.4.2.1}Introduction}{11}{subsubsection.1.4.2.1}
+\contentsline {subsubsection}{\numberline {1.4.2.2}Feature track}{11}{subsubsection.1.4.2.2}
+\contentsline {subsubsection}{\numberline {1.4.2.3}Technical track }{11}{subsubsection.1.4.2.3}
+\contentsline {subsubsection}{\numberline {1.4.2.4}Middle track }{12}{subsubsection.1.4.2.4}
+\contentsline {section}{\numberline {1.5}Analysis and design methodology }{13}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1}Introduction}{13}{subsection.1.5.1}
+\contentsline {subsection}{\numberline {1.5.2}Abstraction}{13}{subsection.1.5.2}
+\contentsline {subsection}{\numberline {1.5.3}Models VS. Methodologies}{14}{subsection.1.5.3}
+\contentsline {subsection}{\numberline {1.5.4}UML 2.0}{15}{subsection.1.5.4}
+\contentsline {section}{\numberline {1.6} Conclusion }{15}{section.1.6}
+\contentsline {chapter}{\chapternumberline {2}Requirements Analysis and Specification}{17}{chapter.2}
+\contentsline {section}{\numberline {2.1}Functional branch}{18}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Requirements analysis}{18}{subsection.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.1.1}Functional requirements}{18}{subsubsection.2.1.1.1}
+\contentsline {subsubsection}{\numberline {2.1.1.2}Non functional requirements}{18}{subsubsection.2.1.1.2}
+\contentsline {paragraph}{Scalability}{19}{section*.9}
+\contentsline {paragraph}{Operability}{19}{section*.10}
+\contentsline {paragraph}{Security}{19}{section*.11}
+\contentsline {paragraph}{Fault tolerance}{19}{section*.12}
+\contentsline {paragraph}{Extensibility}{19}{section*.13}
+\contentsline {subsection}{\numberline {2.1.2}Requirements specification}{19}{subsection.2.1.2}
+\contentsline {subsubsection}{\numberline {2.1.2.1}Actors identification}{19}{subsubsection.2.1.2.1}
+\contentsline {subsubsection}{\numberline {2.1.2.2}Use case modelization}{20}{subsubsection.2.1.2.2}
+\contentsline {paragraph}{Data analytics use case diagram}{20}{section*.14}
+\contentsline {subparagraph}{Use case identification}{20}{section*.15}
+\contentsline {subparagraph}{Senarios description}{20}{section*.16}
+\contentsline {subparagraph}{Nominal Scenario}{21}{section*.17}
+\contentsline {subparagraph}{Alternative Scenario}{21}{section*.18}
+\contentsline {subparagraph}{Error Scenario}{21}{section*.19}
+\contentsline {paragraph}{Use case diagram of account managment}{21}{section*.20}
+\contentsline {subparagraph}{Use case identification}{21}{section*.21}
+\contentsline {subparagraph}{Senarios description}{22}{section*.22}
+\contentsline {subparagraph}{Nominal Scenario}{22}{section*.23}
+\contentsline {subparagraph}{Alternative Scenario}{22}{section*.24}
+\contentsline {subparagraph}{Error Scenario}{22}{section*.25}
+\contentsline {paragraph}{Promotions managment}{22}{section*.26}
+\contentsline {subparagraph}{Use case identification}{23}{section*.27}
+\contentsline {subparagraph}{Senarios description}{23}{section*.28}
+\contentsline {subparagraph}{Nominal Scenario}{23}{section*.29}
+\contentsline {subparagraph}{Alternative Scenario}{23}{section*.30}
+\contentsline {subparagraph}{Error Scenario}{23}{section*.31}
+\contentsline {subsubsection}{\numberline {2.1.2.3}Sequence diagrams}{24}{subsubsection.2.1.2.3}
+\contentsline {paragraph}{Sequence Diagram for the Authentication Scenario}{24}{section*.32}
+\contentsline {paragraph}{Sequence Diagram for account managment}{25}{section*.33}
+\contentsline {paragraph}{Conclusion}{25}{section*.34}
+\contentsline {section}{\numberline {2.2}Technical branch}{26}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Big Data architecture}{26}{subsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.1.1}OSS Message brokers layer}{26}{subsubsection.2.2.1.1}
+\contentsline {paragraph}{SQS AWS}{27}{section*.35}
+\contentsline {paragraph}{Apache Kafka}{27}{section*.36}
+\contentsline {paragraph}{Mongodb message queue}{28}{section*.37}
+\contentsline {paragraph}{HornetQ}{28}{section*.38}
+\contentsline {paragraph}{RabbitMQ}{29}{section*.39}
+\contentsline {paragraph}{Apache ActiveMQ}{29}{section*.40}
+\contentsline {paragraph}{Summary}{30}{section*.41}
+\contentsline {subsubsection}{\numberline {2.2.1.2}NoSQL Databases}{32}{subsubsection.2.2.1.2}
+\contentsline {paragraph}{Document oriented}{32}{section*.42}
+\contentsline {subparagraph}{Mongodb}{32}{section*.43}
+\contentsline {subparagraph}{CouchDB}{32}{section*.44}
+\contentsline {paragraph}{Key Value oriented }{33}{section*.45}
+\contentsline {subparagraph}{Redis}{33}{section*.46}
+\contentsline {paragraph}{Graph oriented}{33}{section*.47}
+\contentsline {subparagraph}{Noe4j}{33}{section*.48}
+\contentsline {paragraph}{Column oriented }{34}{section*.49}
+\contentsline {subparagraph}{Cassandra}{34}{section*.50}
+\contentsline {subparagraph}{Riak}{34}{section*.51}
+\contentsline {subparagraph}{HBase}{34}{section*.52}
+\contentsline {paragraph}{Summary}{35}{section*.53}
+\contentsline {subparagraph}{Polyglot persistence }{35}{section*.54}
+\contentsline {subsubsection}{\numberline {2.2.1.3}Big Data Processing Frameworks}{36}{subsubsection.2.2.1.3}
+\contentsline {paragraph}{Only-Batch processing frameworks }{36}{section*.55}
+\contentsline {subparagraph}{Apache Hadoop (MapReduce) }{36}{section*.56}
+\contentsline {paragraph}{Only-Streaming processing frameworks}{37}{section*.57}
+\contentsline {subparagraph}{Apache storm}{37}{section*.58}
+\contentsline {subparagraph}{Samza}{38}{section*.59}
+\contentsline {paragraph}{Hybrid processing frameworks}{38}{section*.60}
+\contentsline {subparagraph}{Apache Spark }{38}{section*.61}
+\contentsline {subparagraph}{Apache Flink}{38}{section*.62}
+\contentsline {paragraph}{Summary}{38}{section*.63}
+\contentsline {subsubsection}{\numberline {2.2.1.4}Conclusion}{39}{subsubsection.2.2.1.4}
+\contentsline {subsection}{\numberline {2.2.2}Architecture microservice}{39}{subsection.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.2.1}Decomposition}{39}{subsubsection.2.2.2.1}
+\contentsline {paragraph}{Decompose by business capability}{39}{section*.64}
+\contentsline {paragraph}{Decompose by subdomain}{39}{section*.65}
+\contentsline {paragraph}{Summary}{40}{section*.66}
+\contentsline {subsubsection}{\numberline {2.2.2.2}Cross cutting concerns}{40}{subsubsection.2.2.2.2}
+\contentsline {paragraph}{Microservice chassis}{40}{section*.67}
+\contentsline {paragraph}{Summary}{41}{section*.68}
+\contentsline {subsubsection}{\numberline {2.2.2.3}External API}{41}{subsubsection.2.2.2.3}
+\contentsline {paragraph}{API gateway}{41}{section*.69}
+\contentsline {paragraph}{Summary}{41}{section*.70}
+\contentsline {subsubsection}{\numberline {2.2.2.4}Data management}{42}{subsubsection.2.2.2.4}
+\contentsline {paragraph}{Database per Service}{42}{section*.71}
+\contentsline {paragraph}{Shared database}{42}{section*.72}
+\contentsline {paragraph}{Summary}{42}{section*.73}
+\contentsline {subsubsection}{\numberline {2.2.2.5}Conclusion}{43}{subsubsection.2.2.2.5}
+\contentsline {subsection}{\numberline {2.2.3}Deployment architecture}{43}{subsection.2.2.3}
+\contentsline {paragraph}{Multiple service instances per host}{43}{section*.74}
+\contentsline {paragraph}{Service instance per host}{43}{section*.75}
+\contentsline {paragraph}{Service instance per VM}{43}{section*.76}
+\contentsline {paragraph}{Service instance per Container}{43}{section*.77}
+\contentsline {paragraph}{Summary}{43}{section*.78}
+\contentsline {section}{\numberline {2.3} Conclusion }{44}{section.2.3}
+\contentsline {chapter}{\chapternumberline {3}Design}{45}{chapter.3}
+\contentsline {section}{\numberline {3.1} General design }{45}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1} Architectural design }{45}{subsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.1.1} Big Data architectural design }{45}{subsubsection.3.1.1.1}
+\contentsline {subsubsection}{\numberline {3.1.1.2} Microservices architectural design }{46}{subsubsection.3.1.1.2}
+\contentsline {subsubsection}{\numberline {3.1.1.3} Deployment architectural design }{47}{subsubsection.3.1.1.3}
+\contentsline {subsubsection}{\numberline {3.1.1.4} Summary }{48}{subsubsection.3.1.1.4}
+\contentsline {section}{\numberline {3.2} Detailed design }{49}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1} Package Diagram}{49}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2} Class Diagram }{49}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Object Sequence Diagrams}{49}{subsection.3.2.3}
+\contentsline {section}{\numberline {3.3} Conclusion }{49}{section.3.3}
+\contentsline {chapter}{\chapternumberline {4}Implementation}{51}{chapter.4}
+\contentsline {section}{\numberline {4.1}Work environnement}{51}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Hardware environnement}{51}{subsection.4.1.1}
+\contentsline {section}{\numberline {4.2}Software environnement}{51}{section.4.2}
+\contentsline {section}{\numberline {4.3}Realized work}{52}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Environnement preparation}{52}{subsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.1.1}Dockernize Tools}{53}{subsubsection.4.3.1.1}
+\contentsline {paragraph}{Dockernize Kafka}{53}{section*.79}
+\contentsline {paragraph}{Dockernize Scala}{53}{section*.80}
+\contentsline {paragraph}{Dockernize Hadoop}{53}{section*.81}
+\contentsline {paragraph}{Dockernize Spark}{54}{section*.82}
+\contentsline {paragraph}{Dockernize Zeppelin}{54}{figure.4.6}
+\contentsline {subsection}{\numberline {4.3.2}Log Producer}{56}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Spark Jobs}{56}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}Show Resualts on Apache Zeppelin}{56}{subsection.4.3.4}
+\contentsline {subsection}{\numberline {4.3.5}Account Managment}{56}{subsection.4.3.5}
+\contentsline {subsection}{\numberline {4.3.6}Promotion Managment}{56}{subsection.4.3.6}
+\contentsline {subsection}{\numberline {4.3.7}Dashbord Microservice}{56}{subsection.4.3.7}
+\contentsline {subsection}{\numberline {4.3.8}Display Analytics}{56}{subsection.4.3.8}
+\contentsline {subsection}{\numberline {4.3.9}Heat Map users}{56}{subsection.4.3.9}
+\contentsline {subsection}{\numberline {4.3.10}Summary}{56}{subsection.4.3.10}
+\contentsline {subsection}{\numberline {4.3.11}General conclusion}{56}{subsection.4.3.11}
+\contentsline {appendix}{\chapternumberline {A}Appendix A}{57}{appendix.A}
