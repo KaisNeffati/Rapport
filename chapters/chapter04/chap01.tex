@@ -7,7 +7,7 @@
 \chapter{Implementation}
 \label{chap:intro}
 
-\initial{I}
+\initial{I}n this chapter we will talk abour the steps that
 %=======
 \section{Work environnement}
 \label{sec:sec01}
@@ -85,9 +85,31 @@ The next step is the Hadoop installation which takes too much time due to the bi
 	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
 	\label{fig:FilialesEtClients}
 \end{figure}
+\newpage
 After dockernizing Hadoop 2.7 we are able now to see some Doshboard.
 Hadoop YARN ResourceManager HTTP UI :
-Hadoop HDFS NameNode HTTP UI :
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.5	\textheight]{fig01/HadoopYarnDashboard}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+\newpage
+Hadoop HDFS NameNode HTTP UI :\\
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/HDFSNameNode}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+\newline
+We can Check Files existance through the HDFS NameNode UI :\\
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/BrowserFilesHDFS}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
 \paragraph{Dockernize Spark}
 \label{sec:sec01}
 This container is the main container. We built the last two ones for this step. This container is based on the haddop one . Spark uses HDFS to persist data
@@ -128,6 +150,8 @@ In our case we ve used 1 core o
 	\label{fig:FilialesEtClients}
 \end{figure}
 \paragraph{Dockernize Zeppelin}
+Zeppelin is a notebook that allow as to interpret spark or cassandra . Zeppelin container is built on a 
+an alpine linux operating system.
 \label{sec:sec01}
 \begin{figure}[h!]
 	\centering
@@ -137,20 +161,135 @@ In our case we ve used 1 core o
 \end{figure}
 \subsection{Log Producer}
 \label{sec:sec01}
+The log producer is a Scala program that act as a producer for our kafka OSS. We ve used this log producer to perform
+a real data stream flow.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/logProducer}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.6\textheight]{fig01/logProducer1}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
 \subsection{Spark Jobs}
+\label{sec:sec01}
+Applying the lambda architecture require running at least two jobs, in our case we ve created three spark jobs using Scala :
+\begin{itemize}
+\item BatchSaveTOHDFS: This job persists realtime data to HDFS. It consumes data flow from Kafka and persist it to HDFS continuously.
+\item StreamingProcessing: This job is the realtime engine, it consumes data from Kafka and process it and gives results in realtime. 
+\item BatchProcessing: This job is the batch engine, it processes the data already persisted in HDFS and gives results each 8 hours.
+\end{itemize}
+\subsubsection{BatchProcessing}
+\label{sec:sec01}
+The next figure show the BatchProcessing job in it's accepted status:
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.6\textheight]{fig01/SparkJobAccepted}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+\newpage
+The next figure show the BatchProcessing job in it's running status:
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.5\textheight]{fig01/SparkJobRunning}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+\subsubsection{StreamingProcessing}
+\label{sec:sec01}
+\subsubsection{BatchSaveTOHDFS}
 \label{sec:sec01}
 \subsection{Show Resualts on Apache Zeppelin}
 \label{sec:sec01}
+The next figure show Analytics results displayed on Zeppelin dashboard :
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/zeppelin}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
 \subsection{Account Managment}
 \label{sec:sec01}
+\subsubsection{Accounts}
+\label{sec:sec01}
+The next figure show the list Accounts :
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/UserManagement}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+\subsubsection{Account add}
+\label{sec:sec01}
+The next figure show the form add account :
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/UserManagementAdd}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+\subsubsection{Account Update}
+\label{sec:sec01}
+The next figure show the form update account :
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/UserManagementUpdate}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
 \subsection{Promotion Managment}
 \label{sec:sec01}
-\subsection{Dashbord Microservice}
+\subsubsection{Promotions}
 \label{sec:sec01}
+The next figure show the list Promotions :
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/PromotionManagement}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+\subsubsection{Promotion add}
+\label{sec:sec01}
+The next figure show the form add Promotion :
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/PromotionAdd}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+\subsubsection{Promotion Update}
+\label{sec:sec01}
+The next figure show the form update Promotion :
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/PromotionUpdate}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
 \subsection{Display Analytics}
 \label{sec:sec01}
+The next figures show the Data Analytics Doshboard , this dashboard is update each time new data comes :
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/Dashboard}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
 \subsection{Heat Map users}
 \label{sec:sec01}
+The next figure show the Data Analytics Doshboard , this dashboard is update each time new data comes :
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/HeatMap}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
 \subsection{Summary}
 \label{sec:sec01}
 
