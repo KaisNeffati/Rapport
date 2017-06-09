@@ -1,0 +1,54 @@
+\BOOKMARK [0][-]{section*.4}{List of Tables}{}% 1
+\BOOKMARK [0][-]{section*.5}{List of Figures}{}% 2
+\BOOKMARK [0][-]{chapter.1}{Project Scope}{}% 3
+\BOOKMARK [1][-]{section.1.1}{Host company}{chapter.1}% 4
+\BOOKMARK [2][-]{subsection.1.1.1}{Sofrecom}{section.1.1}% 5
+\BOOKMARK [2][-]{subsection.1.1.2}{Sofrecom Tunisie}{section.1.1}% 6
+\BOOKMARK [1][-]{section.1.2}{Problematic}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.3}{Solution}{chapter.1}% 8
+\BOOKMARK [2][-]{subsection.1.3.1}{Intorduction}{section.1.3}% 9
+\BOOKMARK [2][-]{subsection.1.3.2}{Big Data Architecture}{section.1.3}% 10
+\BOOKMARK [2][-]{subsection.1.3.3}{Application Architecture}{section.1.3}% 11
+\BOOKMARK [2][-]{subsection.1.3.4}{Synthesis}{section.1.3}% 12
+\BOOKMARK [1][-]{section.1.4}{Development methodology}{chapter.1}% 13
+\BOOKMARK [2][-]{subsection.1.4.1}{Introduction}{section.1.4}% 14
+\BOOKMARK [2][-]{subsection.1.4.2}{Implementation}{section.1.4}% 15
+\BOOKMARK [1][-]{section.1.5}{Analysis and design methodology }{chapter.1}% 16
+\BOOKMARK [2][-]{subsection.1.5.1}{Introduction}{section.1.5}% 17
+\BOOKMARK [2][-]{subsection.1.5.2}{Abstraction}{section.1.5}% 18
+\BOOKMARK [2][-]{subsection.1.5.3}{Models VS. Methodologies}{section.1.5}% 19
+\BOOKMARK [2][-]{subsection.1.5.4}{UML 2.0}{section.1.5}% 20
+\BOOKMARK [1][-]{section.1.6}{ Conclusion }{chapter.1}% 21
+\BOOKMARK [0][-]{chapter.2}{Requirements Analysis and Specification}{}% 22
+\BOOKMARK [1][-]{section.2.1}{Functional branch}{chapter.2}% 23
+\BOOKMARK [2][-]{subsection.2.1.1}{Requirements analysis}{section.2.1}% 24
+\BOOKMARK [2][-]{subsection.2.1.2}{Requirements specification}{section.2.1}% 25
+\BOOKMARK [1][-]{section.2.2}{Technical branch}{chapter.2}% 26
+\BOOKMARK [2][-]{subsection.2.2.1}{Big Data architecture}{section.2.2}% 27
+\BOOKMARK [2][-]{subsection.2.2.2}{Architecture microservice}{section.2.2}% 28
+\BOOKMARK [2][-]{subsection.2.2.3}{Deployment architecture}{section.2.2}% 29
+\BOOKMARK [1][-]{section.2.3}{ Conclusion }{chapter.2}% 30
+\BOOKMARK [0][-]{chapter.3}{Design}{}% 31
+\BOOKMARK [1][-]{section.3.1}{ General design }{chapter.3}% 32
+\BOOKMARK [2][-]{subsection.3.1.1}{ Architectural design }{section.3.1}% 33
+\BOOKMARK [1][-]{section.3.2}{ Detailed design }{chapter.3}% 34
+\BOOKMARK [2][-]{subsection.3.2.1}{ Package Diagram}{section.3.2}% 35
+\BOOKMARK [2][-]{subsection.3.2.2}{ Class Diagram }{section.3.2}% 36
+\BOOKMARK [2][-]{subsection.3.2.3}{Object Sequence Diagrams}{section.3.2}% 37
+\BOOKMARK [1][-]{section.3.3}{ Conclusion }{chapter.3}% 38
+\BOOKMARK [0][-]{chapter.4}{Implementation}{}% 39
+\BOOKMARK [1][-]{section.4.1}{Work environnement}{chapter.4}% 40
+\BOOKMARK [2][-]{subsection.4.1.1}{Hardware environnement}{section.4.1}% 41
+\BOOKMARK [1][-]{section.4.2}{Software environnement}{chapter.4}% 42
+\BOOKMARK [1][-]{section.4.3}{Realized work}{chapter.4}% 43
+\BOOKMARK [2][-]{subsection.4.3.1}{Environnement preparation}{section.4.3}% 44
+\BOOKMARK [2][-]{subsection.4.3.2}{Log Producer}{section.4.3}% 45
+\BOOKMARK [2][-]{subsection.4.3.3}{Spark Jobs}{section.4.3}% 46
+\BOOKMARK [2][-]{subsection.4.3.4}{Show Resualts on Apache Zeppelin}{section.4.3}% 47
+\BOOKMARK [2][-]{subsection.4.3.5}{Account Managment}{section.4.3}% 48
+\BOOKMARK [2][-]{subsection.4.3.6}{Promotion Managment}{section.4.3}% 49
+\BOOKMARK [2][-]{subsection.4.3.7}{Display Analytics}{section.4.3}% 50
+\BOOKMARK [2][-]{subsection.4.3.8}{Heat Map users}{section.4.3}% 51
+\BOOKMARK [2][-]{subsection.4.3.9}{Summary}{section.4.3}% 52
+\BOOKMARK [2][-]{subsection.4.3.10}{General conclusion}{section.4.3}% 53
+\BOOKMARK [0][-]{appendix.A}{Appendix A}{}% 54

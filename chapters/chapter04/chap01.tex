@@ -62,7 +62,7 @@ kafka.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.2\textheight]{fig01/KafkaContainer}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[filiales et clients de Sofrecom.]{Kafka container}
 	\label{fig:FilialesEtClients}
 \end{figure}
 \paragraph{Dockernize Scala}
@@ -72,7 +72,7 @@ The next step is the Jdk installation. After fixing all paths we move to install
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.2\textheight]{fig01/ScalaContainer}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[filiales et clients de Sofrecom.]{Scala container}
 	\label{fig:FilialesEtClients}
 \end{figure}
 \paragraph{Dockernize Hadoop}
@@ -82,7 +82,7 @@ The next step is the Hadoop installation which takes too much time due to the bi
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.2\textheight]{fig01/HadoopContainer}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[filiales et clients de Sofrecom.]{Hadoop Container}
 	\label{fig:FilialesEtClients}
 \end{figure}
 \newpage
@@ -91,7 +91,7 @@ Hadoop YARN ResourceManager HTTP UI :
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.5	\textheight]{fig01/HadoopYarnDashboard}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[filiales et clients de Sofrecom.]{Hadoop YARN ResourceManager HTTP UI }
 	\label{fig:FilialesEtClients}
 \end{figure}
 \newpage
@@ -99,7 +99,7 @@ Hadoop HDFS NameNode HTTP UI :\\
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/HDFSNameNode}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[filiales et clients de Sofrecom.]{Hadoop HDFS NameNode HTTP UI}
 	\label{fig:FilialesEtClients}
 \end{figure}
 \newline
@@ -107,7 +107,7 @@ We can Check Files existance through the HDFS NameNode UI :\\
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/BrowserFilesHDFS}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[filiales et clients de Sofrecom.]{Browser files HDFS}
 	\label{fig:FilialesEtClients}
 \end{figure}
 \paragraph{Dockernize Spark}
@@ -139,14 +139,14 @@ In our case we ve used 1 core o
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.2\textheight]{fig01/SparkContainer}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[filiales et clients de Sofrecom.]{Spark container}
 	\label{fig:FilialesEtClients}
 \end{figure}
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.2\textheight]{fig01/SparkFinalContainer}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[filiales et clients de Sofrecom.]{Spark deep container .}
 	\label{fig:FilialesEtClients}
 \end{figure}
 \paragraph{Dockernize Zeppelin}
@@ -156,7 +156,7 @@ an alpine linux operating system.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.2\textheight]{fig01/ZeppelinContainer}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[filiales et clients de Sofrecom.]{Zeppelin container.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 \subsection{Log Producer}
@@ -166,15 +166,16 @@ a real data stream flow.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/logProducer}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[filiales et clients de Sofrecom.]{Scala application log producer.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.6\textheight]{fig01/logProducer1}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[filiales et clients de Sofrecom.]{Scala application log producer.}
 	\label{fig:FilialesEtClients}
 \end{figure}
+
 \subsection{Spark Jobs}
 \label{sec:sec01}
 Applying the lambda architecture require running at least two jobs, in our case we ve created three spark jobs using Scala :
@@ -190,7 +191,7 @@ The next figure show the BatchProcessing job in it's accepted status:
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.6\textheight]{fig01/SparkJobAccepted}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[filiales et clients de Sofrecom.]{BatchProcessing spark job in accepted status.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 \newpage
@@ -198,7 +199,7 @@ The next figure show the BatchProcessing job in it's running status:
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.5\textheight]{fig01/SparkJobRunning}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[filiales et clients de Sofrecom.]{BatchProcessing spark job in running status.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 \subsubsection{StreamingProcessing}
@@ -211,7 +212,7 @@ The next figure show Analytics results displayed on Zeppelin dashboard :
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/zeppelin}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[filiales et clients de Sofrecom.]{Zeppelin dashboard.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 \subsection{Account Managment}
@@ -222,7 +223,7 @@ The next figure show the list Accounts :
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/UserManagement}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[filiales et clients de Sofrecom.]{Account list.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 \subsubsection{Account add}
@@ -231,7 +232,7 @@ The next figure show the form add account :
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/UserManagementAdd}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[filiales et clients de Sofrecom.]{Add account.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 \subsubsection{Account Update}
@@ -240,7 +241,7 @@ The next figure show the form update account :
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/UserManagementUpdate}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[filiales et clients de Sofrecom.]{Update account.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 \subsection{Promotion Managment}
@@ -251,7 +252,7 @@ The next figure show the list Promotions :
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/PromotionManagement}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[filiales et clients de Sofrecom.]{Promotions list.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 \subsubsection{Promotion add}
@@ -260,7 +261,7 @@ The next figure show the form add Promotion :
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/PromotionAdd}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[filiales et clients de Sofrecom.]{Add promotions.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 \subsubsection{Promotion Update}
@@ -269,7 +270,7 @@ The next figure show the form update Promotion :
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/PromotionUpdate}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[filiales et clients de Sofrecom.]{Update promotions.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 \subsection{Display Analytics}
@@ -278,7 +279,7 @@ The next figures show the Data Analytics Doshboard , this dashboard is update ea
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/Dashboard}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[filiales et clients de Sofrecom.]{Display analytics dashboard.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 \subsection{Heat Map users}
@@ -287,7 +288,7 @@ The next figure show the Data Analytics Doshboard , this dashboard is update eac
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/HeatMap}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[filiales et clients de Sofrecom.]{Heat map users dashboard.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 \subsection{Summary}
