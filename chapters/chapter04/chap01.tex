@@ -7,7 +7,9 @@
 \chapter{Implementation}
 \label{chap:intro}
 
-\initial{I}n this chapter we will talk abour the steps that
+\initial{I}n this section we will describe our project work. 
+We will start by presenting the working environment . Then we move to talk about each part of
+our project , presenting screenshots and giving the examples of each Implementation.
 %=======
 \section{Work environnement}
 \label{sec:sec01}
@@ -55,6 +57,14 @@ Our application require some containers preparation. The following list contain 
 \label{sec:sec01}
 In this section we present the process of dockernizing our containers .All installation setps are written 
 in Dockerfiles and each container has an OS kernel. We will be using alpine and centos 7.
+The next figure show all our docker images:\\
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/DockerImages}
+	\mycaption[filiales et clients de Sofrecom.]{Docker images}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
 \paragraph{Dockernize Kafka}
 \label{sec:sec01}
 To dockernize this container, we will start by putting a base OS version wich is alpine linux . The next step is the Jdk installation. After fixing all paths we move to install
@@ -90,23 +100,23 @@ After dockernizing Hadoop 2.7 we are able now to see some Doshboard.
 Hadoop YARN ResourceManager HTTP UI :
 \begin{figure}[h!]
 	\centering
-	\includegraphics[height=0.5	\textheight]{fig01/HadoopYarnDashboard}
+	\includegraphics[height=0.4\textheight]{fig01/HadoopYarnDashboard}
 	\mycaption[filiales et clients de Sofrecom.]{Hadoop YARN ResourceManager HTTP UI }
 	\label{fig:FilialesEtClients}
 \end{figure}
-\newpage
-Hadoop HDFS NameNode HTTP UI :\\
+\newline
+Hadoop HDFS NameNode HTTP UI :
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/HDFSNameNode}
 	\mycaption[filiales et clients de Sofrecom.]{Hadoop HDFS NameNode HTTP UI}
 	\label{fig:FilialesEtClients}
 \end{figure}
-\newline
-We can Check Files existance through the HDFS NameNode UI :\\
+\newpage
+We can Check Files existance through the HDFS NameNode UI :
 \begin{figure}[h!]
 	\centering
-	\includegraphics[height=0.3\textheight]{fig01/BrowserFilesHDFS}
+	\includegraphics[height=0.5\textheight]{fig01/BrowserFilesHDFS}
 	\mycaption[filiales et clients de Sofrecom.]{Browser files HDFS}
 	\label{fig:FilialesEtClients}
 \end{figure}
@@ -135,18 +145,10 @@ with Spark.\\
 Notice:
  Spark is an in-Memory data processing framwork so when trying to configure it make sure you put the right RM consumption.
 }
-In our case we ve used 1 core o
-\begin{figure}[h!]
-	\centering
-	\includegraphics[height=0.2\textheight]{fig01/SparkContainer}
-	\mycaption[filiales et clients de Sofrecom.]{Spark container}
-	\label{fig:FilialesEtClients}
-\end{figure}
-
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.2\textheight]{fig01/SparkFinalContainer}
-	\mycaption[filiales et clients de Sofrecom.]{Spark deep container .}
+	\mycaption[filiales et clients de Sofrecom.]{Spark container .}
 	\label{fig:FilialesEtClients}
 \end{figure}
 \paragraph{Dockernize Zeppelin}
@@ -165,13 +167,7 @@ The log producer is a Scala program that act as a producer for our kafka OSS. We
 a real data stream flow.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[height=0.3\textheight]{fig01/logProducer}
-	\mycaption[filiales et clients de Sofrecom.]{Scala application log producer.}
-	\label{fig:FilialesEtClients}
-\end{figure}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[height=0.6\textheight]{fig01/logProducer1}
+	\includegraphics[height=0.6\textheight]{fig01/logProducer}
 	\mycaption[filiales et clients de Sofrecom.]{Scala application log producer.}
 	\label{fig:FilialesEtClients}
 \end{figure}
@@ -198,14 +194,72 @@ The next figure show the BatchProcessing job in it's accepted status:
 The next figure show the BatchProcessing job in it's running status:
 \begin{figure}[h!]
 	\centering
-	\includegraphics[height=0.5\textheight]{fig01/SparkJobRunning}
+	\includegraphics[height=0.3\textheight]{fig01/SparkJobRunning}
 	\mycaption[filiales et clients de Sofrecom.]{BatchProcessing spark job in running status.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 \subsubsection{StreamingProcessing}
 \label{sec:sec01}
+
+The next figure show the StreamingProcessing job in it's accepted status:
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/StreamingProcessingAccepted}
+	\mycaption[filiales et clients de Sofrecom.]{StreamingProcessing spark job in accepted status.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+\newpage
+The next figure show the BatchProcessing job in it's running status:
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/StreamingProcessingRunning}
+	\mycaption[filiales et clients de Sofrecom.]{StreamingProcessing spark job in running status.}
+	\label{fig:FilialesEtClients}
+\end{figure}
 \subsubsection{BatchSaveTOHDFS}
 \label{sec:sec01}
+The next figure show the BatchSaveToHDFS job in it's accepted and running status:
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.4\textheight]{fig01/BatchSaveTOHDFS}
+	\mycaption[filiales et clients de Sofrecom.]{BatchSaveToHDFS spark job in accepted status.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+\newpage
+The next figure show the job Hadoop Yarn UI status:
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/RunningJobStatus}
+	\mycaption[filiales et clients de Sofrecom.]{Running job status Hadoop Yarn UI .}
+	\label{fig:FilialesEtClients}
+\end{figure}
+\newline
+The next figure show the Running application Master:
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/ApplicationMaster}
+	\mycaption[filiales et clients de Sofrecom.]{Application Master dashboard	 .}
+	\label{fig:FilialesEtClients}
+\end{figure}
+\newpage
+The next figure show the running job log:
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.1\textheight]{fig01/JobLog}
+	\mycaption[filiales et clients de Sofrecom.]{Job log .}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
+The next figure show the running job output:
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.4\textheight]{fig01/JobLogResualts}
+	\mycaption[filiales et clients de Sofrecom.]{Job log Resualts .}
+	\label{fig:FilialesEtClients}
+\end{figure}
+\newpage
 \subsection{Show Resualts on Apache Zeppelin}
 \label{sec:sec01}
 The next figure show Analytics results displayed on Zeppelin dashboard :
@@ -293,9 +347,28 @@ The next figure show the Data Analytics Doshboard , this dashboard is update eac
 \end{figure}
 \subsection{Summary}
 \label{sec:sec01}
-
-\subsection{General conclusion}
+In this chapter, we presented our project implementation. 
+First, we have prepared the work environment which takes too much time configuring, adapting versions and dealing
+ with system engineering issues. 
+ Second, we ve moved to link each container to the other one. 
+ Then we started making some jobs like the log producer, the BatchSaveToHDFS, the StreamingProcessing and the 
+ Batch Processing. 
+ Third, we ve implemented the microservices architecture that allows account (users) or promotions management.
+  Finally, we have our results (Analytics, Cruds and Heat Map) displayed on a single dashboard.
+\newpage
+\section{General conclusion}
 \label{sec:sec01}
-
+This project was designed to handle scaling in term of features and treatment. Our project is still incomplete.
+There is a lot of features that we would like to involve. Some of them are:
+ \begin{itemize}
+	\item A gateway api, that handle authentication using Spring boot and zuul.
+	\item A container manager like docker Swarm or Kubernities that takes care of high availability and scalability.
+	\item So much functional features like recommendation engine using Spark mllib.
+	\item A mobile application that takes the log producer place.
+  \item ...
+\end{itemize}
+Finally, We have been focused on creating a well designed system that can handle all of the requirements
+ presented in the second chapter. The technical and the functional branches are now implemented and move
+  to gather in a straight line. 
 
 %=========================================================

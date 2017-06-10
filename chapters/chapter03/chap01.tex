@@ -72,11 +72,75 @@ Finally, the next figure resume all patterns and architecture discribed before.
 \end{figure}
 
 \section{ Detailed design }
+This section will be devoted to the detailed design of our application, 
+we start with the package diagram. 
+Then we present the class diagram.
+And finally we model the dynamic aspect of the system using sequence diagrams
 \subsection{ Package Diagram}
+A package diagram is a collection of static modeling elements (classes, packages, ...) that shows the structure of a model. It describes all the classes and their associations
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/packagediagram}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+Packages in the microservices architecture are totally separated . This is one of the benifit of this approach.
+When creating a new fonctionaly just plug and pluck.
+ \begin{itemize}
+	\item Promotions package : this package handle promotions managment like creating , updating , searching or adding promotions.
+	\item Account package : this package handle users managment like creating , updating , searching or adding promotions. This package
+	expose a very important fonctionalty that allow updating user location. Users location are display in a heatMap. 
+	\item Display analytics package : This package takes care of data analytics results and display it in a dashboard. Allowing
+	users to see realtime analytics results.
+\end{itemize}
+
 \subsection{ Class Diagram }
+After completing the preliminary design phase, 
+we will now detail further this design by presenting the class diagrams of the different packages.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.4\textheight]{fig01/ClassDiagram}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
+ \begin{itemize}
+	\item Account class : This class is used to define the user informations. 
+	It presents the Name, first name, email, login, passwords , essentially the longitude and latitude used for the
+	heatMap chart ...
+	\item Promotions class : This class is used to define the promotion informations. 
+	It presents the name, partner name, status, type, description ... 
+	\item Users by place class : this class is an abstract class that have two implemention which are Batch users by place and streaming
+	users par place. It allows as to track users basing on locations and determine wich place is the most visited one.
+	\textit{For exmaple : if i am having a supermaket , by putting beacons in the each store corner , i will be mesuring the users
+	vist by place in real time .}
+\end{itemize}
+
 \subsection{Object Sequence Diagrams}
-\section{ Conclusion }
+
+A sequence diagram is an interaction diagram that shows how objects operate with one another 
+and in what order. 
+It is a construct of a message sequence chart. 
+A sequence diagram shows object interactions arranged in time sequence.
+\newpage
+\subsubsection{Display analytics sequence diagrams}
 \label{subsec:subsec01}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.85\textheight]{fig01/DisplayAnalyticsSequenceDiagram}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+\newpage
+\subsubsection{Display analytics sequence diagrams} :
+\begin{figure}[h!]
+	\centering
+	\includegraphics[height=0.85\textheight]{fig01/UpdateLocation}
+	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+\newpage
+\section{ Conclusion }
 Two main parts are waiting to be implemented, the first one is the lambda architecture and the data analytics strategy. the second one is the microservices approach and the application logic.
 
 %=========================================================
