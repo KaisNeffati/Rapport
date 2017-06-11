@@ -368,7 +368,7 @@ On an 8-node cluster, these numbers go up to 63 500 msgs/s sent, and 34 800 msgs
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.2\textheight]{fig01/SQS}
-	\mycaption[AWS SQS benshMark.]{ASW SQS benshMark . Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[AWS SQS benshMark.]{ASW SQS benshMark . Figure taken from \cite{softwaremill}.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 \paragraph{Apache Kafka}
@@ -382,7 +382,7 @@ Kafka's performance is great. A single-node single-thread achieves about 2 550 m
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/kafkaPerformance}
-	\mycaption[Kafka perfomance benshMark.]{Kafka perfomance benshMark. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[Kafka perfomance benshMark.]{Kafka perfomance benshMark. Figure taken from \cite{softwaremill}.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 
@@ -395,7 +395,7 @@ The maximum send throughput with multiple thread/nodes is about 10 500 msgs/s,
  \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.2\textheight]{fig01/MongodbMessageQ}
-	\mycaption[Mongodb message queue benshMark.]{Mongodb message queue benshMark. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[Mongodb message queue benshMark.]{Mongodb message queue benshMark. Figure taken from \cite{softwaremill}.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 
@@ -412,7 +412,7 @@ With 25 threads, we are up to 12 800 msgs/s! And finally, with 25 threads and 4 
  \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/HornetQ}
-	\mycaption[HornetQ benshMark.]{HornetQ benshmark. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[HornetQ benshMark.]{HornetQ benshmark. Figure taken from \cite{softwaremill}.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 \paragraph{RabbitMQ}
@@ -426,7 +426,7 @@ This scales nicely as we add nodes, up to 1 600 msgs/s
  \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/RabbitMQ}
-	\mycaption[RabbitMQ benchmark. ]{RabbitMQ benchmark. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[RabbitMQ benchmark. ]{RabbitMQ benchmark. Figure taken from \cite{softwaremill}.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 
@@ -442,7 +442,7 @@ The next benchmark show the perfomance of ActiveMQ  :
  \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/ActiveMQ}
-	\mycaption[ActiveMQ benchmark.]{ActiveMQ benchmark. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[ActiveMQ benchmark.]{ActiveMQ benchmark. Figure taken from \cite{softwaremill}.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 
@@ -467,14 +467,14 @@ When looking only at the throughput, Kafka is a clear winner
   \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/kafkaBenshMark}
-	\mycaption[kafka benshmark.]{kafka benshmark. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[kafka benshmark.]{kafka benshmark. Figure taken from \cite{softwaremill}.}
 	\label{fig:FilialesEtClients}
 \end{figure}\\
 It's also interesting to see how sending more messages in a batch improves the throughput, when increasing the batch size from 10 to 100, Rabbit gets a 2x speedup, HornetQ a 1.2x speedup, and Kafka a 2.5x speedup, achieving about 89 000 msgs/s!
   \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/MQPerformance}
-	\mycaption[stream message queues comparative.]{stream message queues comparative. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[stream message queues comparative.]{stream message queues comparative. Figure taken from \cite{infoq}.}
 	\label{fig:FilialesEtClients}
 \end{figure}\\
 There are of course many other aspects besides performance, 
@@ -599,7 +599,7 @@ one depending on some benshMarks well known.
  \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/NoSqlBenshMark}
-	\mycaption[NoSql benshmark comparative.]{NoSql benshmark comparative. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[NoSql benshmark comparative.]{NoSql benshmark comparative. Figure taken from \cite{linkedin}.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 This benchmarks elect Cassandra as the best database in performance point of view. But infact , there is no best database
@@ -611,7 +611,7 @@ This benchmarks elect Cassandra as the best database in performance point of vie
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/PolyglotPersistance}
-	\mycaption[Polyglot Persistance in practice..]{Polyglot Persistance in practice. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[Polyglot Persistance in practice..]{Polyglot Persistance in practice. Figure taken from \cite{jamesserra}.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 
@@ -623,7 +623,7 @@ application.  Different kinds of data are best dealt with different data stores.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/Polyglot}
-	\mycaption[Polyglot Persistance.]{Polyglot Persistance. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[Polyglot Persistance.]{Polyglot Persistance. Figure taken from \cite{martinfowler}.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 
@@ -685,7 +685,7 @@ Its rapid development makes it worth keeping an eye on.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/BigDataProcessing}
-	\mycaption[BigData Processing frameworks.]{BigData Processing frameworks. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[BigData Processing frameworks.]{BigData Processing frameworks. Figure taken from \cite{cakesolutions}.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 
@@ -788,7 +788,7 @@ Exposing an Api gateway could be a great solution :
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/apiGatway}
-	\mycaption[API Gatway.]{API Gatway. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[API Gatway.]{API Gatway. Figure taken from \cite{microservices.io}.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 Implement an API gateway that is the single entry point for all clients.
