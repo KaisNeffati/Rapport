@@ -20,7 +20,7 @@
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/FilialesEtClients}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[Sofrecom's subsidiaries and customers.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 Sofrecom, an Orange subsidiary, has developed over 50 years unique know-how about operators businesses, 
@@ -38,7 +38,7 @@ making it a world leading specialist in telecommunications consultancy and engin
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.4\textheight]{fig01/sofrecomfields}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[Sofrecom expertise.]{Sofrecom expertise.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 Sofrecom Tunisie, a young company in the local market, inaugurated in October 2012, is the youngest and largest subsidiary of the Sofrecom group in the Africa and Middle East zone.
@@ -50,61 +50,56 @@ As part of the Orange Group, with an international reputation, working for two m
 \section{Problematic}
 \label{subsec:subsec01}
 
-When we talk about selling products and increasing revenues, we totally refer to making offers and publishing promotions. So many companies 
-are using a variety of ways to promote their service. One of them is the Orange group. Orange Group is spending a lot of money on marketing campaigns. 
-Orange is using SMS, MMS and TV emission to be attached to it's clients which is not always the best way.As many marketing experts said, the key success of a marketing strategy is to know where,
- when and to whom a product and/or a service should be exposed.
+When we talk about selling products and increasing revenues, we totally refer to making offers and publishing promotions.
+ So, many companies such Orange group as are using a variety of ways to promote theirs services. In fact, the Orange 
+ Group compagny spend a lot of money on marketing, using SMS, MMS and TV emission to be attached to its clients 
+ which is not always the best way. As many marketing experts said, the key success of a marketing strategy is to 
+ know where, when and to whom a product and/or a service should be exposed. 
+ 
+ A team of engineers in Sofrecom Tunisia, and in an innovation scope, proposes to develop a new marketing strategy which consists of 
+ providing a mobile platfrom using proximity to allow users to see promotions ,services ,and even events
+  ,sensitization ... depending on their intersts and their locations. The main idea is to have a free, location-based
+   orange ibeacons , by using device’s GPS capability to locate Orange ibeacons. Subscribers can capture gifts and promotions when they are nearby ibeacon using BLE devices through the application. The Backend engine of this application gets customers relevant information (rate plan, balance, services,...) in order to propose a bespoke award. So that, this idea would bring some added values such as promote Orange low-rated services usage, increase customers loyalty, trigger based promotions and gifts as per user preferences and targeting subscribers based on usages and consumption habits (Voices,SMS, Data, TopUp...).
 
-A team of engineers in Sofrecom Tunisia, and in an innovation scope, proposes to make a new dimension in Orange marketing strategy. The idea is to provide
-a mobile platfrom that use proximity to allow users to see promotions ,services ,Events ,Sensitization ... depending on their intersts and their locations.
-This application will  have a free, location-based orange ibeacons , use device's GPS capability to locate Orange ibeacons.
-Subscribers can capture gifts and promotions when nearby ibeacon using BLE devices through application.
-The Backend engine of this application gets customers relevant information (rate plan, balance, services,...) in order to propose a bespoke award.
-This idea brings some added values ; promote Orange low-rated services usage ,increase customers loyalty ,trigger based promotions and gifts as per 
-user preferences and targeting subscribers based on usages and consumption habits (Voices, SMS, Data, TopUp...).
-
-Bringing this application to life require implementing a system that allows us to recommend a service and track user behavior. 
-This system should be apt to deal with a huge amount of data (Orange Clients), a Big data should be analysed.
- We were influenced the most by YouTube, which, in first use, exposes videos in an arbitrary way. 
- As users begin to interact with the dashboard YouTube recommend the right list of videos. YouTube takes into consideration recent and old user data. 
- Once the user changes his behavior YouTube will try to rebalance the dashboard view.Our system finally should be able to analyse big data, 
- make recommendation based on interests and proximity and support the logic of application in the backend.
-
+Bringing this application to life requires implementing a system that allows us to recommend a service and track user behaviors. Moreover, this system must deal with a huge amount of data (Orange Clients). To do so, we have inspired by YouTube’s plateform, which, in ﬁrst use, exposes videos in an arbitrary way. As users begin to interact with the dashboard YouTube recommends the right list of videos. YouTube takes into consideration recent and old user data. Once the user changes his behavior YouTube will try to rebalance the dashboard view. So, our final system should be able to analyse a big data, make recommendations based on interests and proximities and support the logic of application in the backend.
 \section{Solution}
 \label{subsec:subsec01}
 
 \subsection{Intorduction}
 \label{subsec:subsec01}
-Our application is divided mainly in two parts,
- a part responsible for data analytics and anther one for application logic. Many patterns and type of architecture are required. 
+Our application is divided mainly in two parts : a part which is responsible for data analytics ; 
+and the other one for application logic. Many patterns and types of architecture are required.
+In the next section, we are going to expose the diverse architectures susceptible to meet the needs of our application
 \subsection{Big Data Architecture}
 \label{subsec:subsec01}
 
 \subsubsection{Lambda Architecture}
 \label{subsec:subsec01}
-is a data-processing architecture designed to handle massive quantities of data by taking advantage of both batch- and stream-processing methods. 
-This approach to architecture attempts to balance latency, throughput, and fault-tolerance by using batch processing to provide comprehensive and accurate 
-views of batch data, while simultaneously using real-time stream processing to provide views of online data. 
-The two view outputs may be joined before presentation. The rise of lambda architecture is correlated with the growth of big data, real-time analytics, 
-and the drive to mitigate the latencies of map-reduce. Lambda architecture depends on a data model with an append-only, immutable data source that
- serves as a system of record.It is intended for ingesting and processing timestamped events that are appended to existing events rather than 
- overwriting them. State is determined from the natural time-based ordering of the data.
-
+It is a data processing architecture designed to handle massive quantities of data by taking advantage of both
+ batch and stream processing methods. This approach attempts to balance the latency, the throughput,
+  and the fault-tolerance by using batch processing in order to provide comprehensive and accurate views of batch data,
+   while simultaneously using real-time stream processing to provide views of online data. 
+   Then, the two view outputs may be joined before presentation. 
+   The rise of lambda architecture is correlated with the growth of big data, 
+   real-time analytics, and the drive to mitigate the latencies of map-reduce.The lambda architecture depends on a data model with an append-only, 
+immutable data source that serves as a system of record. 
+It is intended for ingesting and processing timestamped events that are appended to existing events 
+rather than overwriting them. The state is determined from the natural time-based ordering of the data.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/lambda}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[Architecture lambda abstraction.]{Architecture lambda abstraction.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 \paragraph{Batch Layer}
 \label{subsec:subsec01}
 Precomputes results using a distributed processing system that can handle very large quantities of data. 
-The batch layer aims at perfect accuracy by being able to process all available data when generating views. 
+The batch layer aims at perfect accuracy to process all available data when generating views. 
 This means it can fix any errors by recomputing based on the complete data set, then updating existing views. 
-Output is typically stored in a read-only database, with updates completely replacing existing precomputed views.
+The output is typically stored in a read-only database, with updates completely replacing existing precomputed views.
 \paragraph{Streaming Layer}
 \label{subsec:subsec01}
-The speed layer processes data streams in real time and without the requirements of fix-ups or completeness. This layer sacrifices throughput as it aims 
+As shown in figure 1.2,The speed layer processes data streams in real time and without the requirements of fix-ups or completeness. This layer sacrifices throughput as it aims 
 to minimize latency by providing real-time views into the most recent data. Essentially, the speed layer is responsible for filling the "gap" caused by the 
 batch layer's lag in providing views based on the most recent data. This layer's views may not be as accurate or complete as the ones eventually 
 produced by the batch layer, but they are available almost immediately after data is received, and can be replaced when the batch layer's views for the 
@@ -118,37 +113,38 @@ is a simplification of Lambda Architecture. A Kappa Architecture system is like 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/kappa}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[Architecture Kappa abstraction.]{Architecture Kappa abstraction.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 
 \subsubsection{Synthesis}
 \label{subsec:subsec01}
-The question now is which one fit the best for us? In fact, choosing whether to work with lambda or kappa architecture depends on the use case, 
-so if we treat the same way streaming and existing data the kappa architecture would be a great solution. And if we treat them differently, 
-we should implement the lambda one. In our case, promotions will be recommended upon historical and streaming data. So the best architecture for 
-our case is the lambda architecture. Still, one thing, Which tools shall we use!
+The question now is which architecture ﬁts the best for our requirements ? In fact, choosing whether to work with
+ lambda or kappa architecture depends on the usecase. So, if we treat the same way streaming and existing data then 
+ the kappa architecture will be the great solution. Yet, if we treat them differently, then we should implement the
+  lambda one. In our case, promotions will be recommended upon historical and streaming data. So the best architecture
+   for our case is the lambda architecture. The problem now is which tools must we use.
 
 
 \subsection{Application Architecture}
 \label{subsec:subsec01}
-we are developing a server-side enterprise application that handle the logic of application. 
-It must support a variety of different clients including desktop browsers, mobile browsers and native mobile applications.
- This application might also expose some APIs for 3rd parties to consume. It might also integrate with other applications via either web services 
- or a message broker. The application handles requests (HTTP requests and messages) by executing business logic; 
- accessing a database; exchanging messages with other systems; and returning a HTML/JSON/XML response.
-  There are logical components corresponding to different functional areas of the application.
-
+We are developing a server-side enterprise application that handles the logic of application.
+ It must support a variety of different clients including desktop browsers, mobile browsers and native mobile 
+ applications. This application could also expose some APIs for 3rd parties to consume and integrate with other
+  applications via either web services or a message broker. The application must handle requests (http requests 
+  and messages) by executing business logic; accessing a database; exchanging messages with other systems; and
+   returning a HTML/JSON/XML responses. There are logical components corresponding to different functional areas
+    of the application.
 \subsubsection{Monolithic application}
 \label{subsec:subsec01}
 One of the solutions is to build an application with a monolithic architecture.The application consists of several components and deployed as a single 
 monolithic application. For example, a Java web application consists of a single WAR file that runs on a web container such as Tomcat.
   A Rails application consists of a single directory hierarchy deployed using either, for example, Phusion Passenger on Apache/Nginx or JRuby on Tomcat.
-   we can run multiple instances of the application behind a load balancer in order to scale and improve availability.
+   We can run multiple instances of the application behind a load balancer in order to scale and improve availability.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.5\textheight]{fig01/monolithic}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[Monolithic architecture.]{Monolithic architecture.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 
@@ -160,14 +156,17 @@ This solution has a number of benefits:
   \item Simple to scale - you can scale the application by running multiple copies of the application behind a load balancer
 \end{itemize}
 
-However, once the application becomes large and the team grows in size, this approach has a number of drawbacks that become increasingly significant:
+However, once the application becomes large and the team grows in size, this approach has a number 
+of drawbacks that become increasingly significants:
 
 \begin{itemize}
     \item The large monolithic code base intimidates developers, especially ones who are new to the team. The application can be difficult to understand and modify. As a result, development typically slows down. Also, because there are not hard module boundaries, modularity breaks down over time. Moreover, because it can be difficult to understand how to correctly implement a change the quality of the code declines over time. It's a downwards spiral.
 
     \item Overloaded IDE - the larger the code base the slower the IDE and the less productive developers are.
 
-    \item Overloaded web container - the larger the application the longer it takes to start up. This had have a huge impact on developer productivity because of time wasted waiting for the container to start. It also impacts deployment too.
+    \item Overloaded web container - the larger the application the longer it takes to start up. 
+	This has have a huge impact on developer productivity because of time wasted waiting for the container to start. 
+	It also impacts on deployment too.
 
     \item Continuous deployment is difficult - a large monolithic application is also an obstacle to frequent deployments. In order to update one component you have to redeploy the entire application. This will interrupt background tasks (e.g. Quartz jobs in a Java application), regardless of whether they are impacted by the change, and possibly cause problems. There is also the chance that components that haven't been updated will fail to start correctly. As a result, the risk associated with redeployment increases, which discourages frequent updates. This is especially a problem for user interface developers, since they usually need to iterative rapidly and redeploy frequently.
 
@@ -175,21 +174,27 @@ However, once the application becomes large and the team grows in size, this app
 
     \item Obstacle to scaling development - A monolithic application is also an obstacle to scaling development. Once the application gets to a certain size its useful to divide up the engineering organization into teams that focus on specific functional areas. For example, we might want to have the UI team, accounting team, inventory team, etc. The trouble with a monolithic application is that it prevents the teams from working independently. The teams must coordinate their development efforts and redeployments. It is much more difficult for a team to make a change and update production.
 
-    \item Requires a long-term commitment to a technology stack - a monolithic architecture forces you to be married to the technology stack (and in some cases, to a particular version of that technology) you chose at the start of development . With a monolithic application, can be difficult to incrementally adopt a newer technology. For example, let's imagine that you chose the JVM. You have some language choices since as well as Java you can use other JVM languages that inter-operate nicely with Java such as Groovy and Scala. But components written in non-JVM languages do not have a place within your monolithic architecture. Also, if your application uses a platform framework that subsequently becomes obsolete then it can be challenging to incrementally migrate the application to a newer and better framework. It's possible that in order to adopt a newer platform framework you have to rewrite the entire application, which is a risky undertaking.
+    \item Requires a long-term commitment to a technology stack - a monolithic architecture forces you 
+	to be married to the technology stack (and in some cases, to a particular version of that technology) 
+	you chose at the start of development . With a monolithic application, 
+	it can be difficult to incrementally adopt a newer technology. For example, let's imagine that you chose the JVM. You have some language choices since as well as Java you can use other JVM languages that inter-operate nicely with Java such as Groovy and Scala. But components written in non-JVM languages do not have a place within your monolithic architecture. Also, if your application uses a platform framework that subsequently becomes obsolete then it can be challenging to incrementally migrate the application to a newer and better framework. It's possible that in order to adopt a newer platform framework you have to rewrite the entire application, which is a risky undertaking.
 \end{itemize}
 
 \subsubsection{Microservices Architecture}
 \label{subsec:subsec01}
-another solution is to define an architecture that structures the application as a set of loosely coupled, collaborating services. 
-This approach corresponds to the Y-axis of the Scale Cube. Each service implements a set of narrowly, related functions. For example, an application might 
-consist of services such as the order management service, the customer management service etc.Services communicate using either synchronous protocols such 
-as HTTP/REST or asynchronous protocols such as AMQP. Services can be developed and deployed independently of one another. 
+it's another solution is to define an architecture that structures the application as a set of loosely coupled, collaborating services. 
+This approach corresponds to the Y-axis of the Scale Cube. 
+Each service implements a set of narrowly, related functions. For example, an application might 
+consist of services such as the order management service, the customer management service etc.
+Services communicate using either synchronous protocols such 
+as HTTP/REST or asynchronous protocols such as AMQP. Services can be developed and deployed independently
+ of one another. 
 Each service has its own database in order to be decoupled from other services. Data consistency between services is maintained using 
 an event-driven architecture .
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.4\textheight]{fig01/microservices}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[Microservices architecture.]{Microservices architecture.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 
@@ -231,9 +236,7 @@ Choosing whether to work with microservices or monolithic application is dependi
  version of an application, we often do not have the problems that the microservice approach solves. 
  Moreover, using an elaborate, distributed architecture will slow down development. But looking to the benefits that offer the microservices architecture is
  really impressive.And as this project is dedicated to a big company with a big customer range. This application should be apt to scale up quickly and
- ready to add so much features. So implementing the microservices architecture is a great choice.
- The question now is which tools or patterns shall we use ?	
-
+ ready to add so much features. So implementing the microservices architecture seems to be the great choice.
 
 %=========================================================
 
@@ -263,7 +266,7 @@ constraints as shows it the following diagram:
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.1\textheight]{fig01/2TUPFeature}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[2TUP UML features.]{2TUP UML features.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 In concrete terms, the process is modeled by two branches
@@ -340,7 +343,7 @@ defined.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.6\textheight]{fig01/2TUP}
-	\mycaption[filiales et clients de Sofrecom.]{Sofrecom's subsidiaries and customers. Figure taken from \cite{SofrecomWebsite}.}
+	\mycaption[2TUP UML modeling methodology]{2TUP UML modeling methodology.}
 	\label{fig:FilialesEtClients}
 \end{figure}
 
