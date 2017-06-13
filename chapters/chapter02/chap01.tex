@@ -7,9 +7,8 @@
 \chapter{Requirements Analysis and Specification}
 \label{chap:intro}
 
-\initial{A}fter defining the project scope and making a preliminary study. In this chapter, we will deep dive in two
- parts, one is the functional branchy part which presents the application logic and the other one is the technical
-  branch which present the infrastructure support.
+\initial{A}fter defining the project scope and making a preliminary study, we will present in this chapter 
+the functional and technical requirements related to the application logic and the infrastructure support.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.4\textheight]{fig01/Capture}
@@ -122,21 +121,22 @@ In order to properly establish the planned objectives during our development pro
 the previous requirements using the UML design methodology.
 \subsubsection{Actors identification}
 \label{sec:sec01}
-Starting from the last requirements collection , we identify three main actors that 
-interact continuously with our application.
+Recording to the functional requirements enumareted above, we identify three main actors that interact continuously with our application.
 \begin{itemize}
   \item Administrator - the administrator is able to see users data analytics , track them spatially and manage users
    , promotions and services .
   \item Third party - the third party is able to submit a promotion via an application portail.
-  \item User - the user is able to see promotions and services depending on his interests.
+  \item User or subscriber - the user is able to see promotions and services depending on his interests.
 \end{itemize}
 
 \subsubsection{Use case modelization}
 \label{sec:sec01}
 This phase aims to describe the expected behavior of the application. 
-For this purpose, we use the use case diagram as an essential element of object-oriented modeling. 
-It makes it possible to model the functionalities of the application . 
-\paragraph{Data analytics use case diagram} :
+For this purpose, we use the use case diagram as an essential element of object-oriented modeling which models the main functionalities 
+of our application. For more visibility, we divide the functionnalites of our system in two logical packages : data analytics package (cf. figure 2.2), 
+the account management package (cf. figure 2.3) and the promotions mangement package (cf. figure 2.4).
+\paragraph{Display analytics use case diagram} :\\
+The next figure shows the use case diagram related to the fuctionnal requirements of the administrator.
 \label{sec:sec01}
 \begin{figure}[H]
 	\centering
@@ -145,47 +145,41 @@ It makes it possible to model the functionalities of the application .
 	\label{fig:FilialesEtClients}
 \end{figure}
 
-\subparagraph{Use case identification} :
+\subparagraph{Check data analytics results in realTime use case} :
 \label{sec:sec01} 
+\begin{flushleft}
 
-Title : Data analytics
+Title : Check data analytics results in realTime
 
-Summary : Our application administrator is able to truck users spatially and analyse their data flow , relaying on
-the big data engine , to recommand the most apporiate promotion depending on thier intersts and locations.
+Summary : Our application administrator is able to truck users and analyse their data flow , relaying on
+the big data engine we can see results in realtime.
 
 Actors : administrator
 
-\subparagraph{Senarios description} :
-\label{sec:sec01}
+Senarios description : 
 
-Precondition : This functionality user require the administrator privilege.
+Precondition : This functionality user requires the administrator privilege.
 
-Post-condition : Users could receive administrator logic promotions recommendation.
+Post-condition : Administrator could check data analytics in realtime.
 
-\subparagraph{Nominal Scenario} :
-\label{sec:sec01}
+Nominal Scenario :
 
  \begin{enumerate}
    \item Administrator login to dashboard
    \item Administrator choose between Dashboard and World Map
-   \item If Administrator choose dashboard 
-   \begin{enumerate}
-     \item administrator is able to see data flow analytics in deferent type of charts
-   \end{enumerate}
-   \item If Administrator choose world map 
-   \begin{enumerate}
-     \item administrator is able to see users Heatmap
-   \end{enumerate}
+   \item Administrator choose the dashboard 
+   \item Administrator is able to see data flow analytics in deferent type of charts
  \end{enumerate}
 
-\subparagraph{Alternative Scenario} :
-\label{sec:sec01}
+Alternative Scenario :
 
 There is no alternative senario.
-\subparagraph{Error Scenario} :
-\label{sec:sec01}
+
+Error Scenario :
 
 If the dashboard could not get informations form the microservice then the dashboard show intiale informations.
+\end{flushleft}
+
 \paragraph{Use case diagram of account managment} :
 \label{sec:sec01}
 
@@ -196,26 +190,24 @@ If the dashboard could not get informations form the microservice then the dashb
 	\label{fig:FilialesEtClients}
 \end{figure}
 
-\subparagraph{Use case identification} :
+\subparagraph{Manage accounts use case} :
 \label{sec:sec01} 
+\begin{flushleft}
 
-Title : Account managment
+Title : Manage accounts
 
-Summary : Our application administrator is able to add, remove, update , search and consult users. Our system provide
-an update position functionality that allwo real time user position track. Mobile client application send periodically 
+Summary : Our application administrator is able to add, remove, update , search and consult users. 
+Our system provide an update position functionality that allwo real time user position track. Mobile client application send periodically 
 the device position to the account microservice.
+Actors : Administrator
 
-Actors : administrator
+Senarios description :
 
-\subparagraph{Senarios description} :
-\label{sec:sec01}
+Precondition : This functionality users requires the administrator privilege.
 
-Precondition : This functionality user require the administrator privilege.
+Post-condition : Administrator could mange users account.
 
-Post-condition : Administrator could mange users account and track their positions.
-
-\subparagraph{Nominal Scenario} :
-\label{sec:sec01}
+Nominal Scenario :
 
  \begin{enumerate}
    \item Administrator login to dashboard
@@ -223,43 +215,98 @@ Post-condition : Administrator could mange users account and track their positio
    \item Administrator could search, add, update, delete and consult an account.  
  \end{enumerate}
 
-\subparagraph{Alternative Scenario} :
-\label{sec:sec01}
+Alternative Scenario :
 there is no alternative senario.
-\subparagraph{Error Scenario} :
-\label{sec:sec01}
+Error Scenario :
 If the administrator was not able to do the opration then he will be notified.
+\end{flushleft}
 
- \paragraph{Promotions managment} :
+ \subparagraph{Update location use case} :
 \label{sec:sec01}   
+\begin{flushleft}
+
+Title : Update location
+
+Summary : Our system provide an update position functionality that allwo real time user position track. Mobile client application send periodically 
+the device position to the account microservice. Administrator users moving on the a heat map in realtime.
+Actors : Administrator
+
+Senarios description :
+
+Precondition : This functionality users requires the administrator privilege.
+
+Post-condition : Administrator see users location on map.
+
+Nominal Scenario :
+
+ \begin{enumerate}
+   \item Administrator login to dashboard
+   \item Administrator choose world map 
+   \item Administrator could see users moving on the map in realtime.  
+ \end{enumerate}
+
+Alternative Scenario :
+
+There is no alternative senario.
+Error Scenario :
+
+There is no error senario.
+
+Title : Search for account
+
+Summary : Administrator is able to search for an account using any parameter filter.
+Actors : Administrator
+
+Senarios description :
+
+Precondition : This functionality users requires the administrator privilege.
+
+Post-condition : Administrator see the users that fit to it's filter.
+
+Nominal Scenario :
+
+ \begin{enumerate}
+   \item Administrator login to dashboard
+   \item Administrator choose account management
+   \item Administrator type any information in the search input .  
+   \item Administrator could see thise targeted users.
+ \end{enumerate}
+
+Alternative Scenario :
+
+There is no alternative senario.
+
+Error Scenario :
+
+There is no error senario.
+\end{flushleft}
+
+\paragraph{Promotions managment} :
+\label{sec:sec01}   
+
+\subparagraph{Promotion administrator managment} :
+\label{sec:sec01} 
 
  \begin{figure}[H]
 	\centering
-	\includegraphics[height=0.4\textheight]{fig01/PromotionUseCaseDiagram}
-	\mycaption[Promotion Use Case Diagram.]{Promotion Use Case Diagram.}
+	\includegraphics[height=0.3\textheight]{fig01/PromotionUseCaseDiagram}
+	\mycaption[Promotion Use Case Diagram.]{Promotion administrator Use Case Diagram.}
 	\label{fig:FilialesEtClients}
 \end{figure}
-
-\subparagraph{Use case identification} :
-\label{sec:sec01} 
-
-Title : Promotion managment
+\begin{flushleft}
+Title : Promotion administrator managment
 
 Summary : Our application administrator is able to search, add, delete, update and consult promotions,
-Third party representative is able to make to promote a serive and select wich kind of people his intersted about and
-user can see promotion and take advantage of promotions services.
 
-Actors : administrator , Third party and user
+Actors : Administrator 
 
-\subparagraph{Senarios description} :
-\label{sec:sec01}
+Senarios description :
 
-Precondition : This functionality user require a varity of privilege.
+Precondition : This functionality user require an administrator privilege.
 
-Post-condition : Promotions are well exposed to app users.
+Post-condition : Promotions are well manadged.
 
-\subparagraph{Nominal Scenario} :
-\label{sec:sec01}
+Nominal Scenario :
 
  \begin{enumerate}
    \item Administrator login to dashboard
@@ -267,11 +314,85 @@ Post-condition : Promotions are well exposed to app users.
    \item administrator is able to search, add, update, delete, consult promotion
  \end{enumerate}
 
+Alternative Scenario :
+
+There is no alternative senario.
+
+Error Scenario :
+
+There is no alternative senario.
+
+\end{flushleft}
+
+\subparagraph{Promotion Third party managment} :
+\label{sec:sec01} 
+
+ \begin{figure}[H]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/PromotionThiredPartyUseCaseDiagram}
+	\mycaption[Promotion Use Case Diagram.]{Promotion third party Use Case Diagram.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
+\begin{flushleft}
+
+Title : Promotion Third party  managment
+
+Summary : 
+Third party representative is able to make to promote a serive and select wich kind of people his intersted about .
+
+Actors : Third party
+
+Senarios description :
+
+
+Precondition : This functionality user require a third party privilege.
+
+Post-condition : Third party publish promotions.
+
+Nominal Scenario :
+
  \begin{enumerate}
    \item Third party representative login to dashboard
    \item Choose Promotion managment
    \item He is able to search, add, update, delete and consult his promotions
  \end{enumerate}
+
+Alternative Scenario :
+
+There is no alternative senario.
+
+Error Scenario :
+
+There is no alternative senario.
+
+\end{flushleft}
+
+\subparagraph{Promotion user managment} :
+\label{sec:sec01} 
+
+ \begin{figure}[H]
+	\centering
+	\includegraphics[height=0.3\textheight]{fig01/PromotionUserUseCaseDiagram}
+	\mycaption[Promotion Use Case Diagram.]{Promotion user Use Case Diagram.}
+	\label{fig:FilialesEtClients}
+\end{figure}
+
+\begin{flushleft}
+
+Title : Promotion user managment
+
+Summary : user can see promotion and take advantage of promotions services.
+
+Actors : User
+
+Senarios description :
+
+Precondition : This functionality user require a varity of privilege.
+
+Post-condition : Users can see promotions.
+
+Nominal Scenario :
 
  \begin{enumerate}
    \item User login to the mobile application
@@ -279,17 +400,20 @@ Post-condition : Promotions are well exposed to app users.
  \end{enumerate}
 
 
-\subparagraph{Alternative Scenario} :
-\label{sec:sec01}
+Alternative Scenario :
+
 There is no alternative senario.
-\subparagraph{Error Scenario} :
-\label{sec:sec01}
-If the any application user (administrator, third party representative, mobile application user) was not able to do the opration then he will be notified.
+
+Error Scenario :
+
+There is no alternative senario.
+
+\end{flushleft}
 
 \newpage
 \subsubsection{Sequence diagrams}
 \label{sec:sec01}
-With sequence diagrams, the UML provides a graphical way to represent interactions between objects over time. These diagrams typically show an actor, the objects and the actors with whom he interacts during the execution of the use case. In this section, we present some sequence diagrams to describe the different interactions between the user and the application
+UML provides a graphical way to represent interactions between objects over time by using the sequence diagrams. These diagrams typically show an actor, the objects and the actors with whom he interacts during the execution of the use case. In this section, we present some sequence diagrams to describe the different interactions between the user and the application
 
 \paragraph{Sequence Diagram for the Authentication Scenario} :
 \label{sec:sec01}
@@ -311,15 +435,14 @@ With sequence diagrams, the UML provides a graphical way to represent interactio
 	\label{fig:FilialesEtClients}
 \end{figure}
 
-\paragraph{Conclusion}
+\paragraph{Summary}
 \label{sec:sec01}
 this phase allows us to initiate to the following chapter which deals with our application design. In the next section
 we will deep dive in technical specification.
 \newpage
 \section{Technical branch}
 \label{subsec:subsec01}
-Since the functional requirements have been defined, it's time to choose which tools shall we use and
- especially on which software architecture we will be reposing. 
+In this section, we choose tools that we have to use and also the software architecture on which our application will be handled.
 
 \subsection{Big Data architecture}
 \label{sec:sec01}
@@ -331,8 +454,7 @@ Since the functional requirements have been defined, it's time to choose which t
 	\label{fig:FilialesEtClients}
 \end{figure}
 
-In the last chapter, we choosed to go with the lambda approach. the question now is how to choose the right tools. So in
-the next sections we will be making a comparative study in each field (yellow tags on the previous figure) to pick the most appropriate tools.
+As we already choosed to go with the lambda approach, the question now is how to choose the right tools. So in the next sections we will be making a comparative study in each field (yellow tags on the previous figure) to pick the most appropriate tools.
 
 \subsubsection{OSS Message brokers layer}
 \label{sec:sec01}
@@ -342,12 +464,9 @@ the next sections we will be making a comparative study in each field (yellow ta
 	\mycaption[Message Broker problematic.]{Message Broker problematic.}
 	\label{fig:FilialesEtClients}
 \end{figure}
-The incoming data could be from different sources . Data should be gathered in one data flow pipeline.
+As The incoming data could be from different sources . The data should be gathered in one data flow pipeline.
 Otherwise we will find ourselves dealing with a complexe grid , providing all apis compatibility and resolving 
-extras problems.
-
-
-A great solution for this problem could be a messaging layer that gives a various guarantees 
+extras problems.A great solution for this problem could be a messaging layer that gives a various guarantees 
 of message persistence and delivery.In this section , we will introduce some of the best message brokers that can 
 handle this activity.So our Competitors are SQS AWS, Apache Kafka, Mongodb message queue, HornetQ, RabbitMQ, 
 Apache ActiveMQ
@@ -359,8 +478,7 @@ SQS, Simple Message Queue, is a message-queue-as-a-service offering from Amazon 
  thanks to the easy to understand interfaces, and the as-a-service nature.
 SQS guarantees that if a send completes, the message is replicated to multiple nodes.
  It also provides at-least-once delivery guarantees. We don't really know how SQS is implemented,
-A single thread on single node achieves 430 msgs/s
- sent and the same number of msgs received.
+As shown in figure 2.11 Below, a single thread on single node achieves 430 msgs/s sent and the same number of msgs received.
 These results are not impressive, 
 but SQS scales nicely both when increasing the number of threads, and the number of nodes
 . On a single node, with 50 threads, we can send up to 14 500 msgs/s, and receive up to 4 200 msgs/s.
@@ -377,8 +495,7 @@ Apache Kafka is an open-source stream processing platform developed by the Apach
 written in Scala and Java. The project aims to provide a unified, high-throughput, low-latency platform for handling 
 real-time data feeds. Its storage layer is essentially a massively scalable pub/sub message queue 
 architected making it highly valuable for enterprise infrastructures to process streaming data.
-Kafka's performance is great. A single-node single-thread achieves about 2 550 msgs/s, and the best result
- was 33 500msgs/s with 25 sending and receiving threads and 4 nodes.
+Kafka's performance is great.As shown in figure 2.12 below, we notice that Kafka’s performance is great. In fact, a single-node single-thread achieves about 2 550 msgs/s, and the best result was 33 500msgs/s with 25 sending and receiving threads and 4 nodes.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/kafkaPerformance}
@@ -388,8 +505,8 @@ Kafka's performance is great. A single-node single-thread achieves about 2 550 m
 
 \paragraph{Mongodb message queue}
 \label{sec:sec01}
-Mongo has two main features which make it possible to easily implement a durable, replicated message queue on top of it.
-A single-thread, single-node setup achieves 7 900 msgs/s sent and 1 900 msgs/s received. 
+Mongo has two main features which make it possible to easily implement a durable,replicated message queue on top of it. As illustrated in figure 2.13 below, a single-thread
+, single-node setup achieves 7 900 msgs/s sent and 1 900 msgs/s received. 
 The maximum send throughput with multiple thread/nodes is about 10 500 msgs/s,
  while the maximum receive rate is 3 200 msgs/s, when using the “safe” write concern.
  \begin{figure}[h!]
@@ -406,9 +523,7 @@ HornetQ is an open source asynchronous messaging project from JBoss.
 It is an example of Message-oriented middleware.
  HornetQ is an open source project to build a multi-protocol, embeddable, very high performance, clustered,
   asynchronous messaging system.
-Speaking of performance, HornetQ is very good! A single-node, 
-single-thread setup achieves 1 100 msgs/s. 
-With 25 threads, we are up to 12 800 msgs/s! And finally, with 25 threads and 4 nodes, we can achieve 17 000 msgs/s.
+As shown in figure 2.14 below, we notice that in terms of performance, HornetQ seems to be very good. In deed, a single-node, single-thread setup achieves 1 100 msgs/s. With 25 threads, we are up to 12 800 msgs/s! And finally, with 25 threads and 4 nodes, we can achieve 17 000 msgs/s.
  \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/HornetQ}
@@ -420,9 +535,9 @@ With 25 threads, we are up to 12 800 msgs/s! And finally, with 25 threads and 4 
 RabbitMQ is one of the leading open-source messaging systems. 
 It is written in Erlang, implements AMQP and is a very popular choice when messaging is involved. 
 It supports both message persistence and replication, with well documented behaviour in case of e.g. partitions.
-Such strong guarantees are probably one of the reasons for poor performance. 
-A single-thread, single-node gives us 310 msgs/s sent and received. 
-This scales nicely as we add nodes, up to 1 600 msgs/s
+Such strong guarantees are probably one of the reasons for poor performance. As shown in figure 2.15 below, 
+a single-thread, single-node gives us 310 msgs/s sent and received. This scales nicely as we add nodes, up to 1 600 msgs/s
+
  \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/RabbitMQ}
@@ -437,8 +552,7 @@ Apache ActiveMQ is an open source message broker written in Java together with a
 It provides Enterprise Features which in this case means fostering the communication from more than one client or server.
  Supported clients include Java via JMS 1.1 as well as several other "cross language" clients. 
  The communication is managed with features such as computer clustering and ability to use any database as a 
- JMS persistence provider besides virtual memory, cache, and journal persistency.
-The next benchmark show the perfomance of ActiveMQ  :
+ JMS persistence provider besides virtual memory, cache, and journal persistency. The next benchmark shows the perfomance of ActiveMQ :
  \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/ActiveMQ}
@@ -447,58 +561,47 @@ The next benchmark show the perfomance of ActiveMQ  :
 \end{figure}
 
 \paragraph{Summary}
-Now the question is which message queue we should choose . All of the above solutions have some good sides:
-
-\begin{itemize}
-  \item SQS is a service, so especially if you are using the AWS cloud, it's an easy choice: good performance and no 
-setup required
-  \item if you are using Mongo, it is easy to build a replicated message queue on top of it, without the need to 
-create and maintain a separate messaging cluster
-  \item if you want to have high persistence guarantees, RabbitMQ ensures replication across the cluster and on disk
- on message send.
-  \item HornetQ has great performance with a very rich messaging interface and routing options
-  \item Kafka offers the best performance and scalability
-  \item ActiveMQ employs several modes for high availability,A robust horizontal scaling mechanism and 
-  a flexibility in configuration
-\end{itemize}
-
-When looking only at the throughput, Kafka is a clear winner
- (unless we include SQS with multiple nodes, but as mentioned, that would be unfair)
-  \begin{figure}[h!]
+Now the question is which message queue we should choose . All of the solutions have some good sides.
+SQS is a service, so  if we were using the AWS cloud. SQS is an easy choice: good performance and no 
+setup required. If we were using Mongo, it is easy to build a replicated message queue on top of it, without the need to 
+create and maintain a separate messaging cluster. And if we want to have high persistence guarantees, RabbitMQ ensures replication across 
+the cluster and on disk. ActiveMQ employs several modes for high availability,A robust horizontal scaling mechanism and 
+  a flexibility in configuration. HornetQ has great performance with a very rich messaging interface and routing options. Finally, Kafka offers the best performance 
+and scalability. When looking only at the throughput, Kafka is the best one (unless we include SQS with multiple nodes, but as mentioned, that would be unfair)
+\newpage
+\begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/kafkaBenshMark}
 	\mycaption[kafka benshmark.]{kafka benshmark. Figure taken from \cite{softwaremill}.}
 	\label{fig:FilialesEtClients}
-\end{figure}\\
+\end{figure}
 It's also interesting to see how sending more messages in a batch improves the throughput, when increasing the batch size from 10 to 100, Rabbit gets a 2x speedup, HornetQ a 1.2x speedup, and Kafka a 2.5x speedup, achieving about 89 000 msgs/s!
-  \begin{figure}[h!]
+
+ \begin{figure}[h!]
 	\centering
 	\includegraphics[height=0.3\textheight]{fig01/MQPerformance}
 	\mycaption[stream message queues comparative.]{stream message queues comparative. Figure taken from \cite{infoq}.}
 	\label{fig:FilialesEtClients}
-\end{figure}\\
+\end{figure}
 There are of course many other aspects besides performance, 
 which should be taken into account when choosing a message queue, 
-such as administration overhead, partition tolerance, feature set regarding routing, etc.
-And as we are interested in first with performance , we will choose Kafka for our mission .
+such as administration overhead, partition tolerance, feature set regarding routing, etc. In our case, we only focused in performance ,
+ that’s why we decide to choose Kafka as the data architecture…the next step consists of the choose of
+
+
+
 \subsubsection{NoSQL Databases}
 \label{sec:sec01}
 After performing the Data analytics logic , results are persisted in a serving layer. This layer is mostly a databes and more 
 precisely a noSql database. In this section , we will introduce some of the best noSql databases that can 
-handle this activity.So our Competitors are:
-\begin{itemize}
-  \item \textbf{Document oriented :} Mongodb , CouchDB
-  \item \textbf{Key Value oriented :} Redis
-  \item \textbf{Graph oriented :} Noe4j 
-  \item \textbf{Column oriented :} Cassandra , Riak , HBase
-\end{itemize}
-
+handle this activity :
 \paragraph{Document oriented} 
 \label{sec:sec01} :\\
 A document-oriented database, or document store, is a computer program designed for storing, 
 retrieving and managing document-oriented information, also known as semi-structured data.
- Document-oriented databases are one of the main categories of NoSQL databases, 
+ They are considered as one of the main categories of NoSQL databases, 
  and the popularity of the term document-oriented database has grown with the use of the term NoSQL itself.
+ We discus below two document oriented databases:Mongodb and CouchDB.
 \subparagraph{Mongodb} 
 \label{sec:sec01}
 Mongodb is one of the most popular document based NoSQL database as it stores data in JSON like documents.
